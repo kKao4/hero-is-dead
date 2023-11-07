@@ -96,7 +96,7 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
         </div>
       </NormalRevealWrapper>
       {/* Twitter */}
-      <div className="px-2 max-w-[580px] mx-auto py-10 pb-28">
+      <div className="px-2 max-w-[580px] mx-auto py-10 pb-20 md:pb-28">
         <NormalRevealWrapper>
           {/*  */}
           <div className="flex flex-row gap-x-2 items-center">
@@ -141,7 +141,7 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
             <p className="title-second">Tất Quá Gối</p>
           </Title>
         </NormalRevealWrapper>
-        <div className="grid grid-cols-6 justify-between gap-y-4 ">
+        <div className="grid grid-cols-6 justify-between gap-y-4">
           <SockImage src={image1} handleOnClick={() => setIndex(0)} />
           <SockImage src={image2} handleOnClick={() => setIndex(1)} />
           <SockImage src={image3} handleOnClick={() => setIndex(2)} />
@@ -149,7 +149,7 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
           <SockImage src={image5} handleOnClick={() => setIndex(4)} />
           <SockImage src={image6} handleOnClick={() => setIndex(5)} />
         </div>
-        <div className="h-10" />
+        <div className="h-8 md:h-10" />
       </BoxTitle>
       <Lightbox
         index={index}
