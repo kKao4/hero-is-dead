@@ -1,4 +1,3 @@
-import { RevealWrapper, RevealList } from "next-reveal";
 import Image from "next/image";
 import bluRayImage from "@/assets/onair_03.svg"
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
