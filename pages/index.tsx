@@ -99,7 +99,7 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
         <NormalRevealWrapper>
           {/*  */}
           <div className="flex flex-row gap-x-2 items-center">
-            <p className="capitalize text-5xl tracking-[0.2em] self-end mb-7 "><span className="text-6xl">T</span><span className="text-third-brown">W</span>ITTER</p>
+            <p className="capitalize text-5xl tracking-root self-end mb-7 "><span className="text-6xl">T</span><span className="text-third-brown">W</span>ITTER</p>
             <div className="h-px w-full bg-black" />
             <div className="w-2 h-2 rotate-45 border-black border-2 shrink-0" />
           </div>

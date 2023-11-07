@@ -21,9 +21,9 @@ html.sr .load-hidden {
 
 @layer components {
   .title-main {
-    @apply text-4xl leading-none tracking-widest capitalize md:text-7xl text-center;
+    @apply text-4xl leading-none tracking-root capitalize md:text-7xl text-center mx-2;
   }
   .title-second {
-    @apply text-sm leading-none text-center md:text-lg;
+    @apply text-sm leading-none text-center md:text-lg -mt-1;
   }
 }

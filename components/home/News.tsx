@@ -1,5 +1,4 @@
 import { NewType } from "@/models/new";
-import { RevealList, RevealWrapper } from "next-reveal";
 import Title from "../Title";
 import BoxTitle from "../BoxTitle";
 import NormalRevealWrapper from "../NormalRevealWrapper";
@@ -10,7 +9,7 @@ export default function News({ data }: { data: NewType }) {
       <NormalRevealWrapper>
         {/* News */}
         <Title>
-          <p className="title-main">Ne<span className="leading-none text-root-brown">w</span>s</p>
+          <p className="title-main">Ne<span className="text-root-brown">w</span>s</p>
           <p className="title-second">Thông tin mới nhất</p>
         </Title>
       </NormalRevealWrapper>

@@ -11,6 +11,8 @@ export default async function handler(
     const method = req.method;
     switch (method) {
       case "GET": {
+        let { limit } = req.query;
+        limit = limit ?? "0";
         const news = await New.find({}).sort({ updatedAt: "desc" });
         const newData = news[0];
         res.status(200).json({ message: "Ok", data: newData });

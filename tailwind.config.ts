@@ -13,6 +13,9 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      letterSpacing: {
+        root: "0.2em",
+      },
       spacing: {
         "4.5": "1.125rem",
       },
@@ -23,6 +26,7 @@ const config: Config = {
         "third-brown": "rgb(185,133,57)",
       },
       borderWidth: {
+        "1.5": "1.5px",
         "3": "3px",
         "3.5": "3.5px",
         "6": "6px",
