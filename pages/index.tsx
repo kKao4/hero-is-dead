@@ -1,118 +1,166 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import { RevealWrapper, RevealList } from "next-reveal";
+import Image from "next/image";
+import bluRayImage from "@/assets/onair_03.svg"
+import type { InferGetStaticPropsType, GetStaticProps } from 'next'
+import New, { NewType } from "@/models/new";
+import dbConnect from "@/lib/dbConnect";
+import { useEffect, useState } from "react";
+import ReactPlayer from 'react-player/lazy'
+import ModalVideo from "@/components/home/ModalVideo";
+import RootImage from "@/components/home/RootImage";
+import News from "@/components/home/News";
+import image1 from "@/assets/futomomo_01.jpg"
+import image2 from "@/assets/futomomo_02.jpg"
+import image3 from "@/assets/futomomo_03.jpg"
+import image4 from "@/assets/futomomo_04.jpg"
+import image5 from "@/assets/futomomo_05.jpg"
+import image6 from "@/assets/futomomo_06.jpg"
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen"
+import Zoom from "yet-another-react-lightbox/plugins/zoom"
+import Lightbox from "yet-another-react-lightbox";
+import NextJsImage from "../components/NextJsImage";
+import Title from "@/components/Title";
+import BoxTitle from "@/components/BoxTitle";
+import SockImage from "@/components/home/SockImage";
+import NormalRevealWrapper from "@/components/NormalRevealWrapper";
 
-const inter = Inter({ subsets: ['latin'] })
+export const getStaticProps: GetStaticProps<{ newData: NewType }> = async () => {
+  await dbConnect();
+  const news = await New.find({}).sort({ updatedAt: "desc" });
+  const newData = JSON.parse(JSON.stringify(news[0]));
+  return { props: { newData }, revalidate: 30 }
+}
 
-export default function Home() {
+export default function Page({ newData }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const [isOpenVideoLightBox, setIsOpenVideoLightBox] = useState<boolean>(false)
+  const [hasWindow, setHasWindow] = useState(false);
+  const [index, setIndex] = useState<number>(-1)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setHasWindow(true);
+    }
+  }, []);
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+    <>
+      <ModalVideo isOpenVideoLightBox={isOpenVideoLightBox} hasWindow={hasWindow} handleCloseModal={() => {
+        setIsOpenVideoLightBox(false)
+      }}
+      />
+      <div className="max-w-full sm:max-w-[1160px] sm:px-4 lg:px-14 xl:px-0 pt-4 mx-auto">
+        {/* Root Image */}
+        <RootImage />
+        <NormalRevealWrapper>
+          {/* Blu-ray Box */}
+          <div className="">
+            <Image src={bluRayImage} alt="" className="py-4 mx-auto" quality={100} />
+          </div>
+        </NormalRevealWrapper>
+      </div>
+      {/* News */}
+      <News data={newData} />
+      <NormalRevealWrapper>
+        <div
+          className="relative flex items-center justify-center w-full overflow-hidden h-[240px] md:h-[300px] xl:h-[400px] cursor-pointer group"
+          onClick={() => {
+            setIsOpenVideoLightBox(true)
+          }}
+        >
+          {hasWindow && (
+            <ReactPlayer
+              className="scale-[2.4] aspect-video"
+              url="https://www.youtube.com/embed/nQmCf8JE0G8?disablekb=1"
+              playing={true}
+              loop={true}
+              controls={false}
+              volume={1}
+              muted={true}
+              width="100%"
+              config={{
+                youtube: {
+                  playerVars: {
+                    disablekb: 1,
+                    rel: 0,
+                    iv_load_policy: 3,
+                    playlist: "nQmCf8JE0G8"
+                  }
+                }
+              }}
             />
-          </a>
+          )}
+          <div className="absolute w-full h-full bg-[url('../assets/pattern_dot_bold.png')]" />
+          <div className="absolute w-full h-full bg-[rgba(51,51,51,.5)]" />
+          <div className="absolute flex flex-col -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 gap-y-1 md:gap-y-2">
+            <p className="text-3xl tracking-widest capitalize text-neutral-100 md:text-5xl">Trailer</p>
+            <svg className="mx-auto transition-colors duration-200 h-11 md:h-16 fill-neutral-100 group-hover:fill-neutral-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z" /></svg>
+          </div>
         </div>
+      </NormalRevealWrapper>
+      {/* Twitter */}
+      <div className="px-2 max-w-[580px] mx-auto py-10 pb-28">
+        <NormalRevealWrapper>
+          {/*  */}
+          <div className="flex flex-row gap-x-2 items-center">
+            <p className="capitalize text-5xl tracking-[0.2em] self-end mb-7 "><span className="text-6xl">T</span><span className="text-third-brown">W</span>ITTER</p>
+            <div className="h-px w-full bg-black" />
+            <div className="w-2 h-2 rotate-45 border-black border-2 shrink-0" />
+          </div>
+          {/*  */}
+          <div className="flex flex-row relative">
+            <div className="relative z-10 w-6 mx-auto h-72">
+              <div className="absolute top-0 left-0 w-0 border-transparent border-12 border-t-black border-l-black" />
+              <div className="absolute top-0 left-0 w-0 border-transparent border-11 border-t-root-white border-l-root-white" />
+              <div className="absolute bottom-0 left-0 w-0 border-transparent border-12 border-b-black border-l-black" />
+              <div className="absolute bottom-0 left-0 w-0 border-transparent border-11 border-b-root-white border-l-root-white" />
+              <div className="w-full h-full border-black border-3 border-r-0"></div>
+            </div>
+            <div className="relative w-full flex justify-center items-center -mx-2 border-3 border-t-black border-b-black border-x-transparent">
+              <a className="twitter-timeline" data-height="262" data-chrome="	noheader, nofooter, noborders, transparent, noscrollbar" data-width="100%" data-lang="vi" href="https://twitter.com/yuusyagasinda?ref_src=twsrc%5Etfw">Tweets by yuusyagasinda</a>
+            </div>
+            <div className="relative z-10 w-6 mx-auto h-72">
+              <div className="absolute top-0 right-0 w-0 border-transparent border-12 border-t-black border-r-black" />
+              <div className="absolute top-0 right-0 w-0 border-transparent border-11 border-t-root-white border-r-root-white" />
+              <div className="absolute bottom-0 right-0 w-0 border-transparent border-12 border-b-black border-r-black" />
+              <div className="absolute bottom-0 right-0 w-0 border-transparent border-11 border-b-root-white border-r-root-white" />
+              <div className="w-full h-full border-black border-3 border-l-0"></div>
+            </div>
+            {/* button */}
+            <button
+              className="absolute -bottom-8 left-8 w-[220px] py-4 sm:py-4.5 border-3 items-center border-black bg-white rounded-xl flex flex-row px-2 justify-evenly group hover:bg-black transition-colors"
+              onClick={() => window.open("https://twitter.com/yuusyagasinda", "_blank")}
+            >
+              <svg className="h-6 fill-black group-hover:fill-white transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" /></svg>
+              <span className="group-hover:text-white transition-colors">Twitter chính thức</span>
+            </button>
+          </div>
+        </NormalRevealWrapper>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <BoxTitle>
+        <NormalRevealWrapper>
+          <Title>
+            <div className="title-main">Thigh high socks</div>
+            <p className="title-second">Tất Quá Gối</p>
+          </Title>
+        </NormalRevealWrapper>
+        <div className="grid grid-cols-6 justify-between gap-y-4 ">
+          <SockImage src={image1} handleOnClick={() => setIndex(0)} />
+          <SockImage src={image2} handleOnClick={() => setIndex(1)} />
+          <SockImage src={image3} handleOnClick={() => setIndex(2)} />
+          <SockImage src={image4} handleOnClick={() => setIndex(3)} />
+          <SockImage src={image5} handleOnClick={() => setIndex(4)} />
+          <SockImage src={image6} handleOnClick={() => setIndex(5)} />
+        </div>
+        <div className="h-10" />
+      </BoxTitle>
+      <Lightbox
+        index={index}
+        slides={[image1, image2, image3, image4, image5, image6]}
+        open={index >= 0}
+        close={() => setIndex(-1)}
+        controller={{ closeOnBackdropClick: true }}
+        plugins={[Fullscreen, Zoom]}
+        render={{ slide: NextJsImage }}
+      />
+    </>
   )
 }
+

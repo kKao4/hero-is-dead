@@ -3,25 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --root-brown: rgb(196, 156, 97);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+html.sr .load-hidden {
+  visibility: hidden;
+}
+
+.title {
+  filter: drop-shadow(0 0 0.25rem white) drop-shadow(0 0 0.125rem white)
+    drop-shadow(0 0 0.5rem white);
+}
+
+.yarl__root {
+  --yarl__color_backdrop: rgba(0, 0, 0, 0.82);
+}
+
+@layer components {
+  .title-main {
+    @apply text-4xl leading-none tracking-widest capitalize md:text-7xl text-center;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  .title-second {
+    @apply text-sm leading-none text-center md:text-lg;
+  }
 }
