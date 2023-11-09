@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps<{ newData: NewType }> = async (conte
 export const getStaticPaths: GetStaticPaths = async () => {
   await dbConnect()
   const newsData = await New.find({})
-  console.log("🚀 ~ file: [_id].tsx:17 ~ constgetStaticPaths:GetStaticPaths= ~ newsData:", newsData)
+  // console.log("🚀 ~ file: [_id].tsx:17 ~ constgetStaticPaths:GetStaticPaths= ~ newsData:", newsData)
   const paths = newsData.map((newData) => {
     return {
       params: {
@@ -37,16 +37,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export default function Page({ newData }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <div className="flex flex-col py-12 w-fit mx-auto gap-y-4">
-        <Image src={decoTop} alt="" className="h-14" />
+      <div className="flex flex-col py-6 lg:py-12 w-fit mx-auto gap-y-2 md:gap-y-4">
+        <Image src={decoTop} alt="" className="h-10 lg:h-14" />
         <div className="">
           <p className="normal-font-vn font-normal text-lg text-center">{format(parseISO(newData.createdAt as unknown as string), "uuuu/MM/dd")}</p>
           <p className="normal-font-vn text-third-brown text-3xl text-center">{newData.title}</p>
         </div>
-        <Image src={decoBottom} alt="" className="h-14" />
+        <Image src={decoBottom} alt="" className="h-10 lg:h-14" />
       </div>
-      <div className="bg-second-brown py-12 pb-24">
-        <Markdown className="tracking-wide font-medium font-vn prose max-w-full prose-strong:font-bold w-[980px] mx-auto" remarkPlugins={[remarkGfm]}>
+      <div className="bg-second-brown py-8 pb-16 lg:py-12 lg:pb-24">
+        <Markdown className="tracking-wide font-medium font-vn prose max-w-full prose-strong:font-bold w-[1000px] px-4 mx-auto" remarkPlugins={[remarkGfm]}>
           {newData.content}
         </Markdown>
       </div>

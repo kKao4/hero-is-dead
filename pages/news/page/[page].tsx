@@ -44,12 +44,12 @@ export default function Page({ newsData, pages }: InferGetStaticPropsType<typeof
   }, [router.query.page])
   return (
     <>
-      <div className="max-w-full sm:max-w-[1160px] sm:px-4 lg:px-14 xl:px-0 pt-12 mx-auto">
+      <div className="max-w-full sm:max-w-[1160px] px-4 lg:px-14 xl:px-0 pt-12 mx-auto">
         <Title>
           <p className="title-main">Ne<span className="text-root-brown">w</span>s</p>
           <p className="title-second">Thông tin mới nhất</p>
         </Title>
-        <div className="relative flex flex-row px-4 xl:px-10 mt-14 mb-28">
+        <div className="relative flex flex-row xl:px-10 mt-10 md:mt-14 mb-20 md:mb-28">
           <div className="relative z-10 w-6 mx-auto">
             <div className="absolute top-0 left-0 w-0 border-transparent border-12 border-t-black border-l-black" />
             <div className="absolute top-0 left-0 w-0 border-transparent border-11 border-t-root-white border-l-root-white" />
@@ -57,7 +57,7 @@ export default function Page({ newsData, pages }: InferGetStaticPropsType<typeof
             <div className="absolute bottom-0 left-0 w-0 border-transparent border-11 border-b-root-white border-l-root-white" />
             <div className="w-full h-full border-r-0 border-black border-3"></div>
           </div>
-          <div className="relative flex flex-col items-center justify-center w-full px-6 md:px-10 lg:px-16 pt-12 pb-20 -mx-2 gap-y-8 border-3 border-t-black border-b-black border-x-transparent">
+          <div className="relative flex flex-col items-center justify-center w-full px-4 md:px-10 lg:px-16 pt-12 pb-20 -mx-2 gap-y-8 border-3 border-t-black border-b-black border-x-transparent">
             {newsData && (
               <>
                 {newsData.map((newData) => {

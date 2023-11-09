@@ -21,10 +21,10 @@ html.sr .load-hidden {
 
 @layer components {
   .title-main {
-    @apply text-5xl leading-none tracking-root capitalize md:text-7xl text-center mx-2;
+    @apply text-5xl leading-none tracking-root md:text-7xl text-center mx-2;
   }
   .title-second {
-    @apply text-xs leading-none font-vn font-bold tracking-wide text-center md:text-lg -mt-1 -ml-4;
+    @apply text-xs leading-none font-vn font-bold tracking-wide text-center md:text-lg -ml-4;
   }
   .normal-font-vn {
     @apply font-vn font-bold tracking-wide;
