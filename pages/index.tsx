@@ -90,7 +90,7 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
           <div className="absolute w-full h-full bg-[rgba(51,51,51,.5)]" />
           <div className="absolute flex flex-col -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 gap-y-1 md:gap-y-2">
             <p className="text-3xl tracking-widest capitalize text-neutral-100 md:text-5xl">Trailer</p>
-            <svg className="mx-auto transition-colors duration-200 h-11 md:h-16 fill-neutral-100 group-hover:fill-neutral-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z" /></svg>
+            <svg className="mx-auto transition-colors h-11 md:h-16 fill-neutral-100 group-hover:fill-neutral-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z" /></svg>
           </div>
         </div>
       </NormalRevealWrapper>
@@ -98,21 +98,21 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
       <div className="px-2 max-w-[580px] mx-auto py-10 pb-20 md:pb-28">
         <NormalRevealWrapper>
           {/*  */}
-          <div className="flex flex-row gap-x-2 items-center">
-            <p className="capitalize text-5xl tracking-root self-end mb-7 "><span className="text-6xl">T</span><span className="text-third-brown">W</span>ITTER</p>
-            <div className="h-px w-full bg-black" />
-            <div className="w-2 h-2 rotate-45 border-black border-2 shrink-0" />
+          <div className="flex flex-row items-center gap-x-2">
+            <p className="self-end text-5xl capitalize tracking-root mb-7 "><span className="text-6xl">T</span><span className="text-third-brown">W</span>ITTER</p>
+            <div className="w-full h-px bg-black" />
+            <div className="w-2 h-2 rotate-45 border-2 border-black shrink-0" />
           </div>
           {/*  */}
-          <div className="flex flex-row relative">
+          <div className="relative flex flex-row">
             <div className="relative z-10 w-6 mx-auto h-72">
               <div className="absolute top-0 left-0 w-0 border-transparent border-12 border-t-black border-l-black" />
               <div className="absolute top-0 left-0 w-0 border-transparent border-11 border-t-root-white border-l-root-white" />
               <div className="absolute bottom-0 left-0 w-0 border-transparent border-12 border-b-black border-l-black" />
               <div className="absolute bottom-0 left-0 w-0 border-transparent border-11 border-b-root-white border-l-root-white" />
-              <div className="w-full h-full border-black border-3 border-r-0"></div>
+              <div className="w-full h-full border-r-0 border-black border-3"></div>
             </div>
-            <div className="relative w-full flex justify-center items-center -mx-2 border-3 border-t-black border-b-black border-x-transparent">
+            <div className="relative flex items-center justify-center w-full -mx-2 border-3 border-t-black border-b-black border-x-transparent">
               <a className="twitter-timeline" data-height="262" data-chrome="	noheader, nofooter, noborders, transparent, noscrollbar" data-width="100%" data-lang="vi" href="https://twitter.com/yuusyagasinda?ref_src=twsrc%5Etfw">Tweets by yuusyagasinda</a>
             </div>
             <div className="relative z-10 w-6 mx-auto h-72">
@@ -120,15 +120,15 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
               <div className="absolute top-0 right-0 w-0 border-transparent border-11 border-t-root-white border-r-root-white" />
               <div className="absolute bottom-0 right-0 w-0 border-transparent border-12 border-b-black border-r-black" />
               <div className="absolute bottom-0 right-0 w-0 border-transparent border-11 border-b-root-white border-r-root-white" />
-              <div className="w-full h-full border-black border-3 border-l-0"></div>
+              <div className="w-full h-full border-l-0 border-black border-3"></div>
             </div>
             {/* button */}
             <button
               className="absolute -bottom-8 left-8 w-[220px] py-4 sm:py-4.5 border-3 items-center border-black bg-white rounded-xl flex flex-row px-2 justify-evenly group hover:bg-black transition-colors"
               onClick={() => window.open("https://twitter.com/yuusyagasinda", "_blank")}
             >
-              <svg className="h-6 fill-black group-hover:fill-white transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" /></svg>
-              <span className="group-hover:text-white transition-colors">Twitter chính thức</span>
+              <svg className="h-6 transition-colors fill-black group-hover:fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" /></svg>
+              <span className="transition-colors group-hover:text-white normal-font-vn">Twitter chính thức</span>
             </button>
           </div>
         </NormalRevealWrapper>
@@ -140,7 +140,7 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
             <p className="title-second">Tất Quá Gối</p>
           </Title>
         </NormalRevealWrapper>
-        <div className="grid grid-cols-6 justify-between gap-y-4">
+        <div className="grid justify-between grid-cols-6 gap-y-4">
           <SockImage src={image1} handleOnClick={() => setIndex(0)} />
           <SockImage src={image2} handleOnClick={() => setIndex(1)} />
           <SockImage src={image3} handleOnClick={() => setIndex(2)} />

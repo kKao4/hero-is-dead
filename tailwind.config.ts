@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        modesto: ["var(--font-modesto)"],
+        vn: ["var(--font-vn)"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -18,6 +22,7 @@ const config: Config = {
       },
       spacing: {
         "4.5": "1.125rem",
+        "18": "4.5rem",
       },
       colors: {
         "root-white": "rgb(247,247,247)",
@@ -46,6 +51,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
 export default config;

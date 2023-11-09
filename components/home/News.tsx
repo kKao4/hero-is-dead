@@ -24,7 +24,7 @@ export default function News({ data }: { data: NewType }) {
             <div className="w-full h-full border-black border-3 border-r-0"></div>
           </div>
           <div className="relative flex items-center justify-center w-full -mx-2 border-3 border-t-black border-b-black border-x-transparent">
-            <p className="text-xl text-center md:text-3xl">{data.title}</p>
+            <p className="text-xl text-center md:text-3xl normal-font-vn">{data.title}</p>
           </div>
           <div className="relative z-10 w-6 h-16 mx-auto md:h-24">
             <div className="absolute top-0 right-0 w-0 border-transparent border-12 border-t-black border-r-black" />

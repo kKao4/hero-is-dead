@@ -11,11 +11,16 @@ export default async function handler(
     const method = req.method;
     switch (method) {
       case "GET": {
-        let { limit } = req.query;
-        limit = limit ?? "0";
-        const news = await New.find({}).sort({ updatedAt: "desc" });
-        const newData = news[0];
-        res.status(200).json({ message: "Ok", data: newData });
+        // let { limit } = req.query;
+        // limit = limit ?? "0";
+        // const news = await New.find({}).sort({ updatedAt: "desc" });
+        // const newData = news[0];
+        // res.status(200).json({ message: "Ok", data: newData });
+        await New.create({
+          title: "This is a title",
+          content: "This is some text",
+        });
+        res.status(200).send("Ok");
       }
     }
   } catch (error: any) {

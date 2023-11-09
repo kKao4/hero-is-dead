@@ -8,6 +8,8 @@ const newSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export type NewType = mongoose.InferSchemaType<typeof newSchema>;
+export type NewType = mongoose.InferSchemaType<typeof newSchema> & {
+  _id: string;
+};
 
 export default mongoose.models.news || mongoose.model("news", newSchema);

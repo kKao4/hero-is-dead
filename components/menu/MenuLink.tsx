@@ -9,7 +9,7 @@ export default function MenuLink({ title_1, title_2, mobile }: { title_1: string
         >
           {title_1}
         </p>
-        <p className={`${mobile ? "text-center" : ""} text-[0.575rem] leading-none capitalize text-root-brown tracking-wide`}>{title_2}</p>
+        <p className={`${mobile ? "text-center" : ""} text-[0.575rem] normal-font-vn leading-none capitalize text-root-brown`}>{title_2}</p>
       </div>
     </Link>
   )
