@@ -90,7 +90,7 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
           <div className="absolute w-full h-full bg-[rgba(51,51,51,.5)]" />
           <div className="absolute flex flex-col -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 gap-y-1 md:gap-y-2">
             <p className="text-3xl tracking-widest capitalize text-neutral-100 md:text-5xl">Trailer</p>
-            <svg className="mx-auto transition-colors h-11 md:h-16 fill-neutral-100 group-hover:fill-neutral-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z" /></svg>
+            <svg className="mx-auto transition-colors ease-out h-11 md:h-16 fill-neutral-100 group-hover:fill-neutral-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z" /></svg>
           </div>
         </div>
       </NormalRevealWrapper>
@@ -124,11 +124,11 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
             </div>
             {/* button */}
             <button
-              className="absolute -bottom-8 left-8 w-[220px] py-4 sm:py-4.5 border-3 items-center border-black bg-white rounded-xl flex flex-row px-2 justify-evenly group hover:bg-black transition-colors"
+              className="absolute -bottom-8 left-8 w-[220px] py-4 sm:py-4.5 border-3 items-center border-black bg-white rounded-xl flex flex-row px-2 justify-evenly group hover:bg-black transition-colors ease-out"
               onClick={() => window.open("https://twitter.com/yuusyagasinda", "_blank")}
             >
-              <svg className="h-6 transition-colors fill-black group-hover:fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" /></svg>
-              <span className="transition-colors group-hover:text-white normal-font-vn">Twitter chính thức</span>
+              <svg className="h-6 transition-colors ease-out fill-black group-hover:fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" /></svg>
+              <span className="transition-colors ease-out group-hover:text-white normal-font-vn">Twitter chính thức</span>
             </button>
           </div>
         </NormalRevealWrapper>

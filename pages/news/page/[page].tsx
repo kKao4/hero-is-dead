@@ -58,14 +58,15 @@ export default function Page({ newsData, pages }: InferGetStaticPropsType<typeof
             <div className="w-full h-full border-r-0 border-black border-3"></div>
           </div>
           <div className="relative flex flex-col items-center justify-center w-full px-4 md:px-10 lg:px-16 pt-12 pb-20 -mx-2 gap-y-8 border-3 border-t-black border-b-black border-x-transparent">
+            {/* news display */}
             {newsData && (
               <>
                 {newsData.map((newData) => {
                   return (
                     <Link href={`/news/archives/${newData._id}`} key={newData.title} className="flex flex-row items-start w-full gap-x-4 lg:gap-x-7">
-                      <div className="order-last flex flex-col md:flex-row items-start px-2.5 transition-colors normal-font-vn gap-x-4 lg:gap-x-8 hover:bg-black hover:text-white peer">
-                        <p className="md:text-lg font-normal transition-colors">{format(parseISO(newData.createdAt as unknown as string), "uuuu/MM/dd")}</p>
-                        <p className="text-xl md:text-2xl transition-colors ">{newData.title} {newData.title} {newData.title}</p>
+                      <div className="order-last flex flex-col md:flex-row items-start px-2.5 transition-colors ease-out normal-font-vn gap-x-4 lg:gap-x-8 hover:bg-black hover:text-white peer">
+                        <p className="md:text-lg font-normal transition-colors ease-out">{format(parseISO(newData.createdAt as unknown as string), "uuuu/MM/dd")}</p>
+                        <p className="text-xl md:text-2xl transition-colors ease-out ">{newData.title} {newData.title} {newData.title}</p>
                       </div>
                       <svg className="order-first mt-1 md:mt-0.5 h-4 md:h-5 fill-black peer-hover:fill-root-brown shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" /></svg>
                     </Link>
@@ -82,28 +83,29 @@ export default function Page({ newsData, pages }: InferGetStaticPropsType<typeof
             <div className="w-full h-full border-l-0 border-black border-3"></div>
           </div>
           <div className="absolute bottom-0 flex flex-row -translate-x-1/2 translate-y-1/2 left-1/2 gap-x-7">
+            {/* paginate */}
             {(Array.from({ length: pages }, (_, i) => i + 1)).map(p => {
               return (
                 <Link
                   href={`/news/page/${p}`}
                   key={p}
-                  className={`${page === p.toString() ? "bg-black text-white" : "bg-root-white hover:bg-black hover:text-white"} flex items-center justify-center h-11 w-11 md:w-12 md:h-12 transition-colors rotate-45 border-black border-3`}
+                  className={`${page === p.toString() ? "bg-black text-white" : "bg-root-white hover:bg-black hover:text-white"} flex items-center justify-center h-11 w-11 md:w-12 md:h-12 transition-colors ease-out rotate-45 border-black border-3`}
                 >
                   <span className="text-2xl -rotate-45 normal-font-vn">{p}</span>
                 </Link>
               )
             })}
             {Number(page) + 1 <= pages && (
-              <Link href={`/news/page/${Number(page) + 1}`} className="flex items-center justify-center order-last w-11 h-11 md:w-12 md:h-12 transition-colors rotate-45 border-black border-3 bg-root-white hover:bg-black group">
+              <Link href={`/news/page/${Number(page) + 1}`} className="flex items-center justify-center order-last w-11 h-11 md:w-12 md:h-12 transition-colors ease-out rotate-45 border-black border-3 bg-root-white hover:bg-black group">
                 <span className="text-2xl -rotate-45 normal-font-vn">
                   <svg className="h-6 -mt-0.5 group-hover:fill-root-white transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" /></svg>
                 </span>
               </Link>
             )}
             {Number(page) - 1 >= 1 && (
-              <Link href={`/news/page/${Number(page) - 1}`} className="flex items-center justify-center order-first w-11 h-11 md:w-12 md:h-12 transition-colors rotate-45 border-black border-3 bg-root-white hover:bg-black group">
+              <Link href={`/news/page/${Number(page) - 1}`} className="flex items-center justify-center order-first w-11 h-11 md:w-12 md:h-12 transition-colors ease-out rotate-45 border-black border-3 bg-root-white hover:bg-black group">
                 <span className="text-2xl -rotate-45 normal-font-vn">
-                  <svg className="h-6 -mt-0.5 group-hover:fill-root-white transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" /></svg>
+                  <svg className="h-6 -mt-0.5 group-hover:fill-root-white transition-colors ease-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" /></svg>
                 </span>
               </Link>
             )}
