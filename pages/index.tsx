@@ -130,7 +130,7 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
         </div>
       </NormalRevealWrapper>
       {/* ========= Twitter ========= */}
-      <div className="px-2 w-[580px] mx-auto py-10 pb-20 md:pb-28">
+      <div className="px-2 max-w-[580px] mx-auto py-10 pb-20 md:pb-28">
         <NormalRevealWrapper>
           <div className="flex flex-row items-center gap-x-2">
             <p className="self-end text-5xl capitalize md:text-6xl tracking-root mb-7 ">T<span className="text-third-brown">w</span>itter</p>
