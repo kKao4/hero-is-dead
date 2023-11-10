@@ -2,7 +2,7 @@ import { useState } from "react"
 import DesktopMenu from "./DesktopMenu"
 import MobileMenu from "./MobileMenu"
 import ModalMenu from "./ModalMenu"
-import Container from "../Container"
+import Container from "./Container"
 
 export default function Menu() {
   const [isOpenResponsiveMenu, setIsOpenResponsiveMenu] = useState<boolean>(false)

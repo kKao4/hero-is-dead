@@ -8,21 +8,21 @@ export default function DesktopMenu() {
   return (
     <RevealWrapper className="load-hidden" distance="24px" duration={800} easing="ease-out" delay={200} >
       <div className="flex-row items-end hidden reveal_items lg:flex">
-        <Link href={"/"} className='w-32 xl:w-40 hover:opacity-60 transition-opacity ease-out'>
-          <Image src={logo} alt="" className="max-h-28 xl:max-h-32 max-w-fit" quality={100} />
+        <Link href={"/"} className='transition-opacity ease-out hover:opacity-60'>
+          <Image src={logo} alt="" className="h-28 xl:h-32 w-fit" quality={100} />
         </Link>
         <div className="flex-col hidden py-5 ml-auto lg:flex gap-y-4">
           <div className="flex flex-row justify-end gap-x-8">
-            <MenuLink title_1="News" title_2="Tin Tức" mobile={false} />
-            <MenuLink title_1="On Air" title_2="Phát Sóng" mobile={false} />
-            <MenuLink title_1="Story" title_2="Cốt Truyện" mobile={false} />
-            <MenuLink title_1="STAFF&CAST" title_2="Nhân viên và diễn viên" mobile={false} />
+            <MenuLink href='/news/page/1' title_1="News" title_2="Tin Tức" mobile={false} />
+            <MenuLink href='/on-air' title_1="On Air" title_2="Phát Sóng" mobile={false} />
+            <MenuLink href='/' title_1="Story" title_2="Cốt Truyện" mobile={false} />
+            <MenuLink href='/' title_1="STAFF&CAST" title_2="Nhân viên và diễn viên" mobile={false} />
           </div>
           <div className="flex flex-row justify-end gap-x-8">
-            <MenuLink title_1="CHARACTER" title_2="Nhân Vật" mobile={false} />
-            <MenuLink title_1="PRODUCT" title_2="Sản Phẩm" mobile={false} />
-            <MenuLink title_1="SPECIAL" title_2="Đặc Biệt" mobile={false} />
-            <MenuLink title_1="TWITTER" title_2="TWITTER" mobile={false} />
+            <MenuLink href='/' title_1="CHARACTER" title_2="Nhân Vật" mobile={false} />
+            <MenuLink href='/' title_1="PRODUCT" title_2="Sản Phẩm" mobile={false} />
+            <MenuLink href='/' title_1="SPECIAL" title_2="Đặc Biệt" mobile={false} />
+            <MenuLink href='/' title_1="TWITTER" title_2="TWITTER" mobile={false} />
           </div>
         </div>
       </div>

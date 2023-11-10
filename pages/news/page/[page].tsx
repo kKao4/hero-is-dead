@@ -6,8 +6,10 @@ import { parseISO, format } from "date-fns"
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { RevealList } from "next-reveal";
 import NormalRevealWrapper from "@/components/NormalRevealWrapper";
+import OctagonalBox from "@/components/OctagonalBox";
+import Paginate from "@/components/news/Paginate";
+import Container from "@/components/news/Container";
 
 export const getStaticProps: GetStaticProps<{ newsData: NewType[], pages: number }> = async (context) => {
   await dbConnect();
@@ -19,7 +21,7 @@ export const getStaticProps: GetStaticProps<{ newsData: NewType[], pages: number
   return { props: { newsData, pages }, revalidate: 30 }
 }
 
-export const getStaticPaths = (async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   await dbConnect();
   const newsLength = await New.countDocuments({})
   // console.log("🚀 ~ file: [page].tsx:22 ~ getStaticPaths ~ newsLength:", newsLength)
@@ -36,7 +38,7 @@ export const getStaticPaths = (async () => {
     paths,
     fallback: "blocking"
   }
-}) satisfies GetStaticPaths
+}
 
 export default function Page({ newsData, pages }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter()
@@ -46,78 +48,40 @@ export default function Page({ newsData, pages }: InferGetStaticPropsType<typeof
   }, [router.query.page])
   return (
     <>
-      <div className="max-w-full sm:max-w-[1160px] px-4 lg:px-14 xl:px-0 pt-12 mx-auto">
+      <Container>
         <NormalRevealWrapper>
           <Title>
-            <p className="title-main">Ne<span className="text-root-brown">w</span>s</p>
-            <p className="title-second">Thông tin mới nhất</p>
+            <p className="mx-2 text-5xl leading-none text-center tracking-root md:text-7xl">Ne<span className="text-root-brown">w</span>s</p>
+            <p className="-ml-4 text-xs font-bold leading-none tracking-wide text-center font-vn md:-mt-1 md:text-lg">Thông tin mới nhất</p>
           </Title>
         </NormalRevealWrapper>
         <NormalRevealWrapper>
-          <div className="relative flex flex-row xl:px-10 mt-10 md:mt-14 mb-20 md:mb-28">
-            <div className="relative z-10 w-6 mx-auto">
-              <div className="absolute top-0 left-0 w-0 border-transparent border-12 border-t-black border-l-black" />
-              <div className="absolute top-0 left-0 w-0 border-transparent border-11 border-t-root-white border-l-root-white" />
-              <div className="absolute bottom-0 left-0 w-0 border-transparent border-12 border-b-black border-l-black" />
-              <div className="absolute bottom-0 left-0 w-0 border-transparent border-11 border-b-root-white border-l-root-white" />
-              <div className="w-full h-full border-r-0 border-black border-3"></div>
-            </div>
-            <div className="relative flex flex-col items-center justify-center w-full px-4 md:px-10 lg:px-16 pt-12 pb-20 -mx-2 gap-y-8 border-3 border-t-black border-b-black border-x-transparent">
-              {/* news display */}
-              {newsData && (
-                <>
-                  {newsData.map((newData) => {
-                    return (
-                      <Link href={`/news/archives/${newData._id}`} key={newData.title} className="flex flex-row items-start w-full gap-x-4 lg:gap-x-7">
-                        <div className="order-last flex flex-col md:flex-row items-start px-2.5 transition-colors ease-out normal-font-vn gap-x-4 lg:gap-x-8 hover:bg-black hover:text-white peer">
-                          <p className="md:text-lg font-normal transition-colors ease-out">{format(parseISO(newData.createdAt as unknown as string), "uuuu/MM/dd")}</p>
-                          <p className="text-xl md:text-2xl transition-colors ease-out ">{newData.title} {newData.title} {newData.title}</p>
-                        </div>
-                        <svg className="order-first mt-1 md:mt-0.5 h-4 md:h-5 fill-black peer-hover:fill-root-brown shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" /></svg>
-                      </Link>
-                    )
-                  })}
-                </>
-              )}
-            </div>
-            <div className="relative z-10 w-6 mx-auto">
-              <div className="absolute top-0 right-0 w-0 border-transparent border-12 border-t-black border-r-black" />
-              <div className="absolute top-0 right-0 w-0 border-transparent border-11 border-t-root-white border-r-root-white" />
-              <div className="absolute bottom-0 right-0 w-0 border-transparent border-12 border-b-black border-r-black" />
-              <div className="absolute bottom-0 right-0 w-0 border-transparent border-11 border-b-root-white border-r-root-white" />
-              <div className="w-full h-full border-l-0 border-black border-3"></div>
-            </div>
-            {/* paginate */}
-            <NormalRevealWrapper bottom={80} className="absolute bottom-0 flex flex-row -translate-x-1/2 translate-y-1/2 left-1/2 gap-x-7">
-              {(Array.from({ length: pages }, (_, i) => i + 1)).map(p => {
-                return (
-                  <Link
-                    href={`/news/page/${p}`}
-                    key={p}
-                    className={`${page === p.toString() ? "bg-black text-white" : "bg-root-white hover:bg-black hover:text-white"} flex items-center justify-center h-11 w-11 md:w-12 md:h-12 transition-colors ease-out rotate-45 border-black border-3`}
-                  >
-                    <span className="text-2xl -rotate-45 normal-font-vn">{p}</span>
-                  </Link>
-                )
-              })}
-              {Number(page) + 1 <= pages && (
-                <Link href={`/news/page/${Number(page) + 1}`} className="flex items-center justify-center order-last w-11 h-11 md:w-12 md:h-12 transition-colors ease-out rotate-45 border-black border-3 bg-root-white hover:bg-black group">
-                  <span className="text-2xl -rotate-45 normal-font-vn">
-                    <svg className="h-6 -mt-0.5 group-hover:fill-root-white transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" /></svg>
-                  </span>
-                </Link>
-              )}
-              {Number(page) - 1 >= 1 && (
-                <Link href={`/news/page/${Number(page) - 1}`} className="flex items-center justify-center order-first w-11 h-11 md:w-12 md:h-12 transition-colors ease-out rotate-45 border-black border-3 bg-root-white hover:bg-black group">
-                  <span className="text-2xl -rotate-45 normal-font-vn">
-                    <svg className="h-6 -mt-0.5 group-hover:fill-root-white transition-colors ease-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" /></svg>
-                  </span>
-                </Link>
-              )}
-            </NormalRevealWrapper>
-          </div>
+          <OctagonalBox
+            boxClassName="mt-10 mb-20 md:mb-28 xl:px-10 md:mt-14 font-vn font-bold"
+            contentClassName="relative flex flex-col items-center justify-center px-4 pt-12 pb-20 md:px-10 lg:px-16 gap-y-8"
+            bigTriangleWidth="border-12"
+            smallTriangleWidth="border-11"
+            borderSmallTriangleColor="border-root-white"
+            element={<Paginate page={page} pages={pages} />}
+          >
+            {newsData && (
+              <>
+                {newsData.map((newData) => {
+                  return (
+                    <Link href={`/news/archives/${newData._id}`} key={newData.title} className="flex flex-row items-start w-full gap-x-4 lg:gap-x-7">
+                      <div className="order-last flex flex-col md:flex-row items-start px-2.5 transition-colors ease-out gap-x-4 lg:gap-x-8 hover:bg-black hover:text-white peer">
+                        <p className="font-normal transition-colors ease-out md:text-lg">{format(parseISO(newData.createdAt as unknown as string), "uuuu/MM/dd")}</p>
+                        <p className="text-xl transition-colors ease-out md:text-2xl ">{newData.title} {newData.title} {newData.title}</p>
+                      </div>
+                      <svg className="order-first mt-1 md:mt-0.5 h-4 md:h-5 fill-black peer-hover:fill-root-brown shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" /></svg>
+                    </Link>
+                  )
+                })}
+              </>
+            )}
+          </OctagonalBox>
         </NormalRevealWrapper>
-      </div>
+      </Container>
     </>
   )
 }

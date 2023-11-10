@@ -19,14 +19,4 @@ html.sr .load-hidden {
   --yarl__color_backdrop: rgba(0, 0, 0, 0.82);
 }
 
-@layer components {
-  .title-main {
-    @apply text-5xl leading-none tracking-root md:text-7xl text-center mx-2;
-  }
-  .title-second {
-    @apply text-xs leading-none font-vn font-bold tracking-wide text-center md:-mt-1 md:text-lg -ml-4;
-  }
-  .normal-font-vn {
-    @apply font-vn font-bold tracking-wide;
-  }
-}
+
