@@ -42,12 +42,12 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
     <>
       <NormalRevealWrapper>
         <div className="flex flex-col py-6 mx-auto lg:py-12 w-fit gap-y-2 md:gap-y-4">
-          <Image src={decoTop} alt="" className="h-10 lg:h-14" />
+          <Image src={decoTop} alt="" className="h-10 lg:h-14" quality={0} priority={false} />
           <div className="">
             <p className="text-lg font-normal text-center font-vn">{format(parseISO(newData.createdAt as unknown as string), "uuuu/MM/dd")}</p>
             <p className="text-3xl font-bold text-center font-vn text-third-brown">{newData.title}</p>
           </div>
-          <Image src={decoBottom} alt="" className="h-10 lg:h-14" />
+          <Image src={decoBottom} alt="" className="h-10 lg:h-14" quality={0} priority={false} />
         </div>
       </NormalRevealWrapper>
       <div className="py-8 pb-16 bg-second-brown lg:py-12 lg:pb-24">
@@ -62,7 +62,7 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
               smallTriangleWidth="border-7.5"
               contentClassName="relative flex items-center justify-center px-4 capitalize transition-colors ease-out bg-white group-hover:bg-black gap-x-4 w-fit font-vn font-bold"
               borderSmallTriangleColor="border-second-brown"
-           >
+            >
               <svg className="h-6 transition-colors ease-out fill-black group-hover:fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" /></svg>
               <span className="transition-colors ease-out group-hover:text-white">Tất cả tin tức</span>
             </OctagonalBox>

@@ -1,8 +1,9 @@
 import { useState } from "react"
 import DesktopMenu from "./DesktopMenu"
-import MobileMenu from "./MobileMenu"
 import ModalMenu from "./ModalMenu"
 import Container from "./Container"
+import dynamic from "next/dynamic"
+const DynamicMobileMenu = dynamic(() => import("./MobileMenu"))
 
 export default function Menu() {
   const [isOpenResponsiveMenu, setIsOpenResponsiveMenu] = useState<boolean>(false)
@@ -10,7 +11,10 @@ export default function Menu() {
     <>
       <Container>
         <DesktopMenu />
-        <MobileMenu isOpenResponsiveMenu={isOpenResponsiveMenu} setIsOpenResponsiveMenu={setIsOpenResponsiveMenu} />
+        <DynamicMobileMenu
+          isOpenResponsiveMenu={isOpenResponsiveMenu}
+          setIsOpenResponsiveMenu={setIsOpenResponsiveMenu}
+        />
       </Container>
       <ModalMenu isOpenResponsiveMenu={isOpenResponsiveMenu} />
     </>

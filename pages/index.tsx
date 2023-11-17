@@ -5,7 +5,6 @@ import New, { NewType } from "@/models/new";
 import dbConnect from "@/lib/dbConnect";
 import { useEffect, useState } from "react";
 import ReactPlayer from 'react-player/lazy'
-import ModalVideo from "@/components/home/ModalVideo";
 import rootImage from "@/assets/visual_04_chara.webp"
 import logo from "@/assets/logo_1line.svg"
 import image1 from "@/assets/futomomo_01.jpg"
@@ -14,10 +13,6 @@ import image3 from "@/assets/futomomo_03.jpg"
 import image4 from "@/assets/futomomo_04.jpg"
 import image5 from "@/assets/futomomo_05.jpg"
 import image6 from "@/assets/futomomo_06.jpg"
-import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen"
-import Zoom from "yet-another-react-lightbox/plugins/zoom"
-import Lightbox from "yet-another-react-lightbox";
-import NextJsImage from "../components/NextJsImage";
 import Title from "@/components/Title";
 import BoxNews from "@/components/home/BoxNews";
 import SockImage from "@/components/home/SockImage";
@@ -25,6 +20,14 @@ import NormalRevealWrapper from "@/components/NormalRevealWrapper";
 import OctagonalBox from "@/components/OctagonalBox";
 import ButtonTwitter from "@/components/home/ButtonTwitter";
 import { RevealWrapper } from "next-reveal";
+import Script from "next/script";
+import dynamic from "next/dynamic";
+const DynamicModalVideo = dynamic(() => import("@/components/home/ModalVideo"), {
+  ssr: false
+})
+const DynamicLightBox = dynamic(() => import("@/components/home/LazyLightBox"), {
+  ssr: false
+})
 
 export const getStaticProps: GetStaticProps<{ newData: NewType }> = async () => {
   await dbConnect();
@@ -42,9 +45,14 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
       setHasWindow(true);
     }
   }, []);
+  const handleCloseLightBox = () => {
+    setIndex(-1)
+  }
   return (
     <>
-      <ModalVideo
+      <Script src="https://platform.twitter.com/widgets.js" />
+      {/* ========= Modal Video ========= */}
+      <DynamicModalVideo
         isOpenVideoLightBox={isOpenVideoLightBox}
         hasWindow={hasWindow}
         handleCloseModal={() => setIsOpenVideoLightBox(false)}
@@ -60,16 +68,16 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
         {/* ========= Root Image ========= */}
         <div className="relative -mt-1 overflow-hidden sm:mx-9">
           <RevealWrapper className="load-hidden" scale={1.2} duration={1000} distance="0" easing="ease-out" delay={200}>
-            <Image src={rootImage} alt="" priority={true} quality={100} />
+            <Image src={rootImage} alt="" priority={true} quality={100} placeholder="blur" />
           </RevealWrapper>
           <RevealWrapper className="load-hidden" scale={1.2} duration={1000} distance="0" easing="ease-out" delay={200}>
-            <Image src={logo} quality={100} alt="" className="absolute scale-90 -translate-x-1/2 bottom-6 sm:bottom-14 xl:bottom-24 title sm:scale-110 lg:scale-125 xl:scale-165 left-1/2" />
+            <Image src={logo} quality={100} priority={true} alt="" className="absolute scale-90 -translate-x-1/2 bottom-6 sm:bottom-14 xl:bottom-24 title sm:scale-110 lg:scale-125 xl:scale-165 left-1/2" />
           </RevealWrapper>
         </div>
         {/* ========= Blu-ray ========= */}
         <NormalRevealWrapper>
           <div className="">
-            <Image src={bluRayImage} alt="" className="py-4 mx-auto" quality={100} />
+            <Image src={bluRayImage} alt="" className="py-4 mx-auto" quality={50} />
           </div>
         </NormalRevealWrapper>
       </div>
@@ -138,13 +146,14 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
             <div className="w-2 h-2 rotate-45 border-2 border-black shrink-0" />
           </div>
           <OctagonalBox
-            contentClassName="relative flex items-center justify-center"
+          contentClassName="relative flex items-center justify-center"
             bigTriangleWidth="border-12"
             smallTriangleWidth="border-11"
             borderSmallTriangleColor="border-root-white"
             smallBoxClassName="h-72"
             element={<ButtonTwitter />}
           >
+            {/* TODO: dynamic import  */}
             <a className="font-bold twitter-timeline font-vn" data-height="262" data-chrome="	noheader, nofooter, noborders, transparent, noscrollbar" data-width="100%" data-lang="vi" href="https://twitter.com/yuusyagasinda?ref_src=twsrc%5Etfw">Tweets by yuusyagasinda</a>
           </OctagonalBox>
         </NormalRevealWrapper>
@@ -167,15 +176,8 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
         </div>
         <div className="h-8 md:h-10" />
       </BoxNews>
-      <Lightbox
-        index={index}
-        slides={[image1, image2, image3, image4, image5, image6]}
-        open={index >= 0}
-        close={() => setIndex(-1)}
-        controller={{ closeOnBackdropClick: true }}
-        plugins={[Fullscreen, Zoom]}
-        render={{ slide: NextJsImage }}
-      />
+      {/* ========= Light Box ========= */}
+      <DynamicLightBox index={index} handleCloseLightBox={handleCloseLightBox} />
     </>
   )
 }

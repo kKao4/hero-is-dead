@@ -1,4 +1,4 @@
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 import Modal from "../Modal";
 import { useRef } from "react";
 import { useOnClickOutside } from 'usehooks-ts'

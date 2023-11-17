@@ -21,8 +21,8 @@ export default function Page() {
           <p>Phát Sóng Trên TOKYO MX, BS11!</p>
         </div>
         <OctagonalBox
-          boxClassName="mt-8 md:mt-10 mb-6 md:mt-14 font-vn font-bold"
-          contentClassName="relative flex flex-col items-center justify-center px-3 md:px-4 p-6 md:p-14 md:px-10 lg:px-16 gap-y-8"
+          boxClassName="mt-8 md:mt-14 mb-6 font-vn font-bold"
+          contentClassName="relative flex flex-col items-center justify-center px-3 p-6 md:p-14 md:px-10 lg:px-16 gap-y-8"
           bigTriangleWidth="border-12"
           smallTriangleWidth="border-11"
           borderSmallTriangleColor="border-root-white"

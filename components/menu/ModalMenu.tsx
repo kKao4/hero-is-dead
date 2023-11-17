@@ -5,7 +5,7 @@ import MenuLink from "./MenuLink"
 export default function ModalMenu({ isOpenResponsiveMenu }: { isOpenResponsiveMenu: boolean }) {
   return (
     <div className={`${isOpenResponsiveMenu ? "opacity-100 translate-y-0 z-10" : "opacity-0 -translate-y-[100%] -z-10"} transition-all duration-400 fixed top-0 w-full ease-out h-screen py-14 bg-root-white`}>
-      <Image src={logo_mobile} alt="" className="block mx-auto max-h-14 max-w-fit lg:hidden" quality={100} />
+      <Image src={logo_mobile} alt="" className="block mx-auto max-h-14 max-w-fit lg:hidden" quality={50} />
       <div className="flex flex-col py-10 gap-y-6">
         <MenuLink href="/news/page/1" title_1="News" title_2="Tin Tức" mobile={true} />
         <MenuLink href="/on-air" title_1="On Air" title_2="Phát Sóng" mobile={true} />

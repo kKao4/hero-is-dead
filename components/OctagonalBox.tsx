@@ -2,9 +2,9 @@ export default function OctagonalBox({
   children, smallBoxClassName, boxClassName, contentClassName, element, bigTriangleWidth, smallTriangleWidth, borderSmallTriangleColor
 }: {
   children: React.ReactNode,
-  boxClassName?: React.HTMLProps<HTMLElement>["className"],
+  boxClassName?: string,
   smallBoxClassName?: string,
-  contentClassName: React.ComponentProps<'div'>['className'],
+  contentClassName: string,
   element?: React.ReactNode,
   bigTriangleWidth: string,
   smallTriangleWidth: string,
@@ -13,7 +13,7 @@ export default function OctagonalBox({
 }) {
   return (
     <>
-      <div className={`relative flex flex-row ${boxClassName}`}>
+      <div className={`flex flex-row ${boxClassName}`}>
         <div className={`relative z-10 w-6 ${smallBoxClassName}`}>
           <div className={`absolute top-0 left-0 w-0 border-transparent ${bigTriangleWidth} border-t-black border-l-black`} />
           <div className={`absolute top-0 left-0 w-0 ${smallTriangleWidth} ${borderSmallTriangleColor} border-b-transparent border-r-transparent  `} />
@@ -31,8 +31,8 @@ export default function OctagonalBox({
           <div className={`absolute bottom-0 right-0 w-0 ${smallTriangleWidth} ${borderSmallTriangleColor} border-t-transparent border-l-transparent`} />
           <div className="w-full h-full border-l-0 border-black border-3"></div>
         </div>
+        {element}
       </div>
-      {element}
     </>
   )
 }

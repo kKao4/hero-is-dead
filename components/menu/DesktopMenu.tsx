@@ -9,7 +9,7 @@ export default function DesktopMenu() {
     <RevealWrapper className="load-hidden" distance="24px" duration={800} easing="ease-out" delay={200} >
       <div className="flex-row items-end hidden reveal_items lg:flex">
         <Link href={"/"} className='transition-opacity ease-out hover:opacity-60'>
-          <Image src={logo} alt="" className="h-28 xl:h-32 w-fit" quality={100} />
+          <Image src={logo} alt="" priority={true} className="h-28 xl:h-32 w-fit" quality={50} />
         </Link>
         <div className="flex-col hidden py-5 ml-auto lg:flex gap-y-4">
           <div className="flex flex-row justify-end gap-x-8">
