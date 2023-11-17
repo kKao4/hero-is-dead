@@ -8,8 +8,16 @@ import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen"
 import Zoom from "yet-another-react-lightbox/plugins/zoom"
 import Lightbox from "yet-another-react-lightbox";
 import NextJsImage from "../NextJsImage";
+import { useEffect } from "react"
 
 export default function LazyLightBox({ index, handleCloseLightBox }: { index: number, handleCloseLightBox: any }) {
+  useEffect(() => {
+    if (index >= 0) {
+      document.documentElement.style.overflow = "hidden"
+    } else {
+      document.documentElement.style.overflow = "auto"
+    }
+  }, [index])
   return (
     <Lightbox
       index={index}

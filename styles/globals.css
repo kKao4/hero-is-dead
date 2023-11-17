@@ -6,14 +6,6 @@
   --root-brown: rgb(196, 156, 97);
 }
 
-.invisible-scrollbar {
-  /* width */
-  ::-webkit-scrollbar {
-    width: 0px;
-    opacity: 0;
-  }
-}
-
 html.sr .load-hidden {
   visibility: hidden;
 }

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
+    "@uidotdev/usehooks": "^2.4.1",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "date-fns": "^2.30.0",

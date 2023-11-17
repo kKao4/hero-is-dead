@@ -9,11 +9,9 @@ export default function Modal({ children, handleOnClose, isOpen }: { children?: 
   }, [isOpen])
   useEffect(() => {
     if (isOpen) {
-      document.documentElement.classList.add("invisible-scrollbar")
+      document.documentElement.style.overflow = "hidden"
     } else {
-      if (document.documentElement.classList.contains("invisible-scrollbar")) {
-        document.documentElement.classList.remove("invisible-scrollbar")
-      }
+      document.documentElement.style.overflow = "auto"
     }
   }, [isOpen])
   return (
@@ -24,6 +22,7 @@ export default function Modal({ children, handleOnClose, isOpen }: { children?: 
           setTranslate("-translate-x-full")
         }
       }}
+      onClick={handleOnClose}
     >
       <div className="absolute top-2 right-4" onClick={() => {
         handleOnClose()

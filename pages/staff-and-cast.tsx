@@ -1,4 +1,3 @@
-import Modal from "@/components/Modal";
 import OctagonalBox from "@/components/OctagonalBox";
 import Title from "@/components/Title";
 import Container from "@/components/news/Container";
@@ -7,10 +6,16 @@ import RowCast from "@/components/staff-and-cast/RowCast";
 import RowStaff from "@/components/staff-and-cast/RowStaff";
 import { useState } from "react";
 import castOhara from "@/assets/cast_ohara.jpg"
-import Image from "next/image";
+import castNakamura from "@/assets/cast_nakamura.jpg"
+import castHatano from "@/assets/cast_hatano.jpg"
+import dynamic from "next/dynamic";
+const DynamicModalCast = dynamic(() => import("@/components/staff-and-cast/ModalCast"))
 
 export default function StaffAndCast() {
-  const [castDetail, setCastDetail] = useState<string>("")
+  const [openingCastDetail, setOpeningCastDetail] = useState<string>("")
+  const handleCloseCastDetail = () => {
+    setOpeningCastDetail("")
+  }
   return (
     <>
       <Container>
@@ -87,58 +92,65 @@ export default function StaffAndCast() {
             <RowCast character="Yuna Yunis" voiceActor="Hibiki Yamamura" />
             <RowCast character="Marguerite Fallom" voiceActor="Yuryka Kubo" />
             <RowCast character="Kyle Ozment" voiceActor="Yuichi Nakamura">
-              <LearnMoreButton handleOnClick={() => setCastDetail("1")} />
+              <LearnMoreButton handleOnClick={() => setOpeningCastDetail("Nakamura")} />
             </RowCast>
             <RowCast character="Ethel Borgnine" voiceActor="Sayaka Ohara">
-              <LearnMoreButton handleOnClick={() => setCastDetail("1")} />
+              <LearnMoreButton handleOnClick={() => setOpeningCastDetail("Ohara")} />
             </RowCast>
             <RowCast character="Belarco" voiceActor="Wataru Hatano">
-              <LearnMoreButton handleOnClick={() => setCastDetail("1")} />
+              <LearnMoreButton handleOnClick={() => setOpeningCastDetail("Belarco")} />
             </RowCast>
             <RowCast character="Isaac Gardner" voiceActor="Takashi Aoki">
-              <LearnMoreButton handleOnClick={() => setCastDetail("1")} />
+              <LearnMoreButton handleOnClick={() => setOpeningCastDetail("1")} />
             </RowCast>
             <RowCast character="Leland Tolman" voiceActor="Chikahiro Kobayashi">
-              <LearnMoreButton handleOnClick={() => setCastDetail("1")} />
+              <LearnMoreButton handleOnClick={() => setOpeningCastDetail("1")} />
             </RowCast>
             <RowCast character="Friedrich Norstein" voiceActor="Kensho Ono">
-              <LearnMoreButton handleOnClick={() => setCastDetail("1")} />
+              <LearnMoreButton handleOnClick={() => setOpeningCastDetail("1")} />
             </RowCast>
             <RowCast character="Diego Valentine" voiceActor="Shintaro Asanuma">
-              <LearnMoreButton handleOnClick={() => setCastDetail("1")} />
+              <LearnMoreButton handleOnClick={() => setOpeningCastDetail("1")} />
             </RowCast>
             <RowCast character="Milly Yunis" voiceActor="Shinpuku Sakura">
-              <LearnMoreButton handleOnClick={() => setCastDetail("1")} />
+              <LearnMoreButton handleOnClick={() => setOpeningCastDetail("1")} />
             </RowCast>
             <RowCast character="Fieri Yunis" voiceActor="Hiroki Higashichi">
-              <LearnMoreButton handleOnClick={() => setCastDetail("1")} />
+              <LearnMoreButton handleOnClick={() => setOpeningCastDetail("1")} />
             </RowCast>
           </OctagonalBox>
         </div>
       </Container>
+      <DynamicModalCast
+        isOpen={openingCastDetail === "Ohara"}
+        handleOnClose={handleCloseCastDetail}
+        img={castOhara}
+        character="Ethel Borgnine"
+        voiceActor="Sayaka Ohara"
+        content="Tôi sẽ đóng vai người cố vấn của Touka, Ethel.Có nhiều cảnh anh ấy tỏ ra là một nhân vật mạnh mẽ, ngầu và hoàn hảo, đồng thời anh ấy thể hiện những biểu cảm bất ngờ, và tôi cảm thấy rất vui khi các diễn viên có thể tận hưởng trọn vẹn sự cân bằng tinh tế giữa nghiêm túc và hài hước trong suốt tác phẩm.Xin hãy chờ đợi nó được phát sóng...♪"
+      />
+      <DynamicModalCast
+        isOpen={openingCastDetail === "Nakamura"}
+        handleOnClose={handleCloseCastDetail}
+        img={castNakamura}
+        character="Kyle Ozment"
+        voiceActor="Yuichi Nakamura"
+        content="Người đàn ông mà tôi sẽ vào vai lần này là một người mạnh mẽ, lôi cuốn và là người mà bạn có thể rất kính trọng... nhưng con người luôn có một mặt ẩn giấu.
+        Tôi hy vọng bạn mong muốn tìm hiểu xem anh ấy thực sự là người như thế nào!"
+      />
+      <DynamicModalCast
+        isOpen={openingCastDetail === "Belarco"}
+        handleOnClose={handleCloseCastDetail}
+        img={castHatano}
+        character="Belarco"
+        voiceActor="Wataru Hatano"
+        content="Tôi sẽ đảm nhận vai Belako.
+        Được biết đến với cái tên Belako, &#34;Ngọn giáo song sinh&#34;, anh ta là một nhà thám hiểm lành nghề, người đã từng tiêu diệt hơn 100 con quỷ.
+        Tôi thực sự rất vinh dự khi được đóng một vai ngầu và ngầu như vậy!
+        Hãy chờ đợi sự thành công của Belako!"
+      />
       {/* TODO: dynamic import  */}
-      <Modal isOpen={castDetail.length > 0} handleOnClose={() => setCastDetail("")}>
-        <div className="flex h-full w-full justify-center items-center">
-          <div className="w-full bg-root-white flex justify-center items-center">
-            <div className="max-w-[820px] h-[80vh] lg:h-2/3 overflow-y-auto mx-auto font-vn px-6 py-8">
-              <div className="grow">
-                <p className="font-bold md:text-xl text-third-brown">Vai trò của Ethel Borgnine</p>
-                <p className="font-bold text-2xl md:text-3xl">Sayaka Ohara</p>
-                <div className="w-[240px] lg:hidden block mx-auto my-6">
-                  <Image src={castOhara} alt="" quality={75} priority={false} placeholder="blur" />
-                </div>
-                <p className="font-medium md:text-lg leading-7 md:leading-9">Tôi sẽ đóng vai người cố vấn của Touka, Ethel.
-                  Có nhiều cảnh anh ấy tỏ ra là một nhân vật mạnh mẽ, ngầu và hoàn hảo, đồng thời anh ấy thể hiện những biểu cảm bất ngờ, và tôi cảm thấy rất vui khi các diễn viên có thể tận hưởng trọn vẹn sự cân bằng tinh tế giữa nghiêm túc và hài hước trong suốt tác phẩm.
-                  Xin hãy chờ đợi nó được phát sóng...♪</p>
-              </div>
-              <div className="w-1/3 aspect-auto shrink-0 lg:block hidden">
-                <Image src={castOhara} alt="Sayaka Ohara" quality={75} priority={false} placeholder="blur" />
-              </div>
-              {/* hihi */}
-            </div>
-          </div>
-        </div>
-      </Modal>
+
     </>
   )
 }
