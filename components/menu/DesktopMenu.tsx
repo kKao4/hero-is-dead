@@ -20,7 +20,7 @@ export default function DesktopMenu() {
             <MenuLink href='/staff-and-cast' title_1="STAFF&CAST" title_2="Nhân viên và diễn viên" mobile={false} />
           </div>
           <div className="flex flex-row justify-end gap-x-8">
-            <MenuLink href='/' title_1="CHARACTER" title_2="Nhân Vật" mobile={false} />
+            <MenuLink href='/character' title_1="CHARACTER" title_2="Nhân Vật" mobile={false} />
             <MenuLink href='/' title_1="PRODUCT" title_2="Sản Phẩm" mobile={false} />
             <MenuLink href='/' title_1="SPECIAL" title_2="Đặc Biệt" mobile={false} />
             <MenuLink href='/' title_1="TWITTER" title_2="TWITTER" mobile={false} />

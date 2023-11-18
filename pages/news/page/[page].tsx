@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import NormalRevealWrapper from "@/components/NormalRevealWrapper";
 import OctagonalBox from "@/components/OctagonalBox";
 import Paginate from "@/components/news/Paginate";
-import Container from "@/components/news/Container";
+import Container from "@/components/Container";
 
 export const getStaticProps: GetStaticProps<{ newsData: NewType[], pages: number }> = async (context) => {
   await dbConnect();

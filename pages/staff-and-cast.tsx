@@ -1,6 +1,6 @@
 import OctagonalBox from "@/components/OctagonalBox";
 import Title from "@/components/Title";
-import Container from "@/components/news/Container";
+import Container from "@/components/Container";
 import LearnMoreButton from "@/components/staff-and-cast/LearnMoreButton";
 import RowCast from "@/components/staff-and-cast/RowCast";
 import RowStaff from "@/components/staff-and-cast/RowStaff";
@@ -17,7 +17,7 @@ import dynamic from "next/dynamic";
 import NormalRevealWrapper from "@/components/NormalRevealWrapper";
 const DynamicModalCast = dynamic(() => import("@/components/staff-and-cast/ModalCast"))
 
-export default function StaffAndCast() {
+export default function Page() {
   const [openingCastDetail, setOpeningCastDetail] = useState<string>("")
   const handleCloseCastDetail = () => {
     setOpeningCastDetail("")

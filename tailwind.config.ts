@@ -51,8 +51,13 @@ const config: Config = {
         "400": "400ms",
       },
       scale: {
+        "80": "0.8",
+        "140": "1.4",
         "165": "1.65",
         "215": "2.15",
+      },
+      transitionProperty: {
+        menu: "transform, opacity",
       },
     },
   },
