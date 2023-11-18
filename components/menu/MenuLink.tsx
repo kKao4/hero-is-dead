@@ -8,7 +8,11 @@ export default function MenuLink({ title_1, title_2, mobile, href }: { title_1: 
     <Link
       href={href}
       className={`${mobile ? "mx-auto" : ""} flex flex-row items-center group gap-x-2`}
-      onClick={() => dispatch(toggleOpenModalMenu())}
+      onClick={() => {
+        if (mobile) {
+          dispatch(toggleOpenModalMenu())
+        }
+      }}
     >
       {!mobile && <div className="w-4 h-4 border-3.5 group-hover:border-6 transition-all duration-100 ease-linear border-root-brown rotate-45" />}
       <div className="flex flex-col">
