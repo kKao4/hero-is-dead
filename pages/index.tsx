@@ -146,15 +146,14 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
             <div className="w-2 h-2 rotate-45 border-2 border-black shrink-0" />
           </div>
           <OctagonalBox
-          contentClassName="relative flex items-center justify-center"
+            contentClassName="relative flex items-center justify-center"
             bigTriangleWidth="border-12"
             smallTriangleWidth="border-11"
             borderSmallTriangleColor="border-root-white"
             smallBoxClassName="h-72"
             element={<ButtonTwitter />}
           >
-            {/* TODO: dynamic import  */}
-            <a className="font-bold twitter-timeline font-vn" data-height="262" data-chrome="	noheader, nofooter, noborders, transparent, noscrollbar" data-width="100%" data-lang="vi" href="https://twitter.com/yuusyagasinda?ref_src=twsrc%5Etfw">Tweets by yuusyagasinda</a>
+            <a className="font-bold twitter-timeline font-vn" data-height="262" data-chrome="noheader, nofooter, noborders, transparent, noscrollbar" data-width="100%" data-lang="vi" href="https://twitter.com/yuusyagasinda?ref_src=twsrc%5Etfw">Tweets by yuusyagasinda</a>
           </OctagonalBox>
         </NormalRevealWrapper>
       </div>
@@ -162,7 +161,7 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
       <BoxNews>
         <NormalRevealWrapper>
           <Title>
-            <div className="mx-2 text-5xl leading-none text-center tracking-root md:text-7xl">Thigh high socks</div>
+            <div className="mx-2 text-4xl leading-none text-center tracking-root md:text-7xl">Thigh high socks</div>
             <p className="-ml-4 text-xs font-bold leading-none tracking-wide text-center font-vn md:-mt-1 md:text-lg">Tất Quá Gối</p>
           </Title>
         </NormalRevealWrapper>

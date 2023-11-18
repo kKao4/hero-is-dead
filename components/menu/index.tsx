@@ -1,22 +1,18 @@
-import { useState } from "react"
 import DesktopMenu from "./DesktopMenu"
-import ModalMenu from "./ModalMenu"
 import Container from "./Container"
+import MobileMenu from "./MobileMenu"
 import dynamic from "next/dynamic"
-const DynamicMobileMenu = dynamic(() => import("./MobileMenu"))
+const DynamicModalMenu = dynamic(() => import("./ModalMenu"))
 
 export default function Menu() {
-  const [isOpenResponsiveMenu, setIsOpenResponsiveMenu] = useState<boolean>(false)
   return (
     <>
+      {/* TODO: remake the close modal animation */}
       <Container>
         <DesktopMenu />
-        <DynamicMobileMenu
-          isOpenResponsiveMenu={isOpenResponsiveMenu}
-          setIsOpenResponsiveMenu={setIsOpenResponsiveMenu}
-        />
+        <MobileMenu />
       </Container>
-      <ModalMenu isOpenResponsiveMenu={isOpenResponsiveMenu} />
+      <DynamicModalMenu />
     </>
   )
 }
