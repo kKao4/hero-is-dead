@@ -36,12 +36,12 @@ export default function Page() {
     <>
       <Container>
         <Title>
-          <p className="mx-2 text-4xl sm:text-5xl leading-none text-center tracking-root md:text-7xl">Cha<span className="text-third-brown">r</span>acter</p>
+          <p className="mx-2 text-4xl leading-none text-center sm:text-5xl tracking-root md:text-7xl">Cha<span className="text-third-brown">r</span>acter</p>
           <p className="-ml-4 text-xs font-bold leading-none tracking-wide text-center font-vn md:-mt-1 md:text-lg">Nhân vật</p>
         </Title>
       </Container>
-      <Container maxWidth="1280px" className="pt-6 sm:pt-9 pb-36">
-        <div className="flex flex-row flex-wrap gap-7 md:gap-10 mx-auto max-w-fit justify-center">
+      <Container maxWidth="1280px" className="pt-6 pb-32 sm:pt-9">
+        <div className="flex flex-row flex-wrap justify-center gap-6 mx-auto sm:gap-7 md:gap-10 max-w-fit">
           <CharacterThumb isActive={openingCharacter === "touka"} img={toukaThumb} handleOnClick={() => setOpeningCharacter("touka")} />
           <CharacterThumb isActive={openingCharacter === "anri"} img={anriThumb} handleOnClick={() => setOpeningCharacter("anri")} />
           <CharacterThumb isActive={openingCharacter === "yuna"} img={yunaThumb} handleOnClick={() => setOpeningCharacter("yuna")} />
@@ -57,9 +57,10 @@ export default function Page() {
           <CharacterThumb isActive={openingCharacter === "mily"} img={milyThumb} handleOnClick={() => setOpeningCharacter("mily")} />
         </div>
       </Container>
-      <div className="bg-second-brown pt-32 pl-72 h-screen hidden">
-        <div className="relative">
+      <div className="bg-second-brown pt-[390px] sm:pt-[540px] lg:pt-24 xl:pt-40 pb-12 lg:pb-28 xl:pb-44 px-4">
+        <div className="relative w-fit mx-auto -translate-x-0 lg:-translate-x-[8%]">
           <CharacterDetail
+            isFirst={true}
             isOpen={openingCharacter === "touka"}
             img={toukaVisual}
             character="touka scott"
