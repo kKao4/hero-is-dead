@@ -13,12 +13,12 @@ export default function CharacterDetail({ img, character, cv, content, isOpen, i
         element={
           <OctagonalBox
             boxClassName="absolute top-0 -translate-y-1/2 left-8 sm:left-12 bg-second-brown"
-            contentClassName="p-3 xl:p-4 uppercase text-xl lg:text-2xl"
+            contentClassName="p-3 xl:p-4"
             bigTriangleWidth="border-7.5"
             smallTriangleWidth="border-6"
             borderSmallTriangleColor="border-second-brown"
           >
-            {character}
+            <p className="text-lg uppercase lg:text-2xl">{character}</p>
           </OctagonalBox>
         }
       >

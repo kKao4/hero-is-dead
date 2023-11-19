@@ -14,4 +14,4 @@ export default function TvLink({ href, content, colSpan }: { href: string, conte
       </OctagonalBox>
     </button>
   )
-}
+} 
