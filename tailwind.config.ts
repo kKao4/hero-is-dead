@@ -28,7 +28,7 @@ const config: Config = {
       },
       colors: {
         "root-white": "rgb(247,247,247)",
-        "root-brown": "rgb(196, 156, 97)",
+        "root-brown": "rgb(196,156,97)",
         "second-brown": "rgb(233,196,141)",
         "third-brown": "rgb(185,133,57)",
       },
@@ -50,7 +50,11 @@ const config: Config = {
       transitionDuration: {
         "400": "400ms",
       },
+      transitionDelay: {
+        "400": "400ms",
+      },
       scale: {
+        "77": "0.77",
         "80": "0.8",
         "140": "1.4",
         "165": "1.65",

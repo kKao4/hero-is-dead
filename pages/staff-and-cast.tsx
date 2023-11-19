@@ -27,7 +27,7 @@ export default function Page() {
       <Container>
         <NormalRevealWrapper>
           <Title>
-            <p className="mx-2 text-3xl leading-none text-center tracking-root md:text-7xl">St<span className="text-third-brown">a</span>ff&<span className="text-third-brown">C</span>ast</p>
+            <p className="mx-2 text-4xl sm:text-5xl leading-none text-center tracking-root md:text-7xl">St<span className="text-third-brown">a</span>ff&<span className="text-third-brown">C</span>ast</p>
             <p className="-ml-4 text-xs font-bold leading-none tracking-wide text-center font-vn md:-mt-1 md:text-lg">Nhân viên và diễn viên</p>
           </Title>
         </NormalRevealWrapper>

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function CharacterDetail({ img, character, cv, content, isOpen }: { img: any, character: string, cv: string, content: string, isOpen: boolean }) {
   return (
-    <div className={`${isOpen ? "block" : "hidden"} transition-opacity ease-out`}>
+    <div className={`${isOpen ? "opacity-100 delay-300" : "opacity-0"} transition-opacity ease-out absolute duration-300 top-0 left-0`}>
       <OctagonalBox
         boxClassName="mt-8 md:mt-14 mb-6 w-[820px] relative"
         contentClassName="relative pl-3 pb-8 pt-12 pr-56  md:pl-10 lg:pl-8 font-vn font-bold"
@@ -24,8 +24,8 @@ export default function CharacterDetail({ img, character, cv, content, isOpen }:
       >
         <span className="font-medium mr-2">cv</span>
         <span className="text-xl">{cv}</span>
-        <p className="font-medium mt-4">{content}</p>
-        <Image className="absolute -right-1/2 z-20 top-1/4 -translate-y-1/2 scale-80" src={img} alt="" quality={100} placeholder="blur" />
+        <p className="font-medium mt-4 text-lg">{content}</p>
+        <Image className="absolute -right-1/2 z-20 top-1/4 -translate-y-1/2 scale-77" src={img} alt="" quality={100} placeholder="blur" priority={character.includes("touka")} />
       </OctagonalBox>
     </div>
   )

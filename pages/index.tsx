@@ -161,7 +161,7 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
       <BoxNews>
         <NormalRevealWrapper>
           <Title>
-            <div className="mx-2 text-4xl leading-none text-center tracking-root md:text-7xl">Thigh high socks</div>
+            <div className="mx-2 text-4xl sm:text-5xl leading-none text-center tracking-root md:text-7xl">Thigh high socks</div>
             <p className="-ml-4 text-xs font-bold leading-none tracking-wide text-center font-vn md:-mt-1 md:text-lg">Tất Quá Gối</p>
           </Title>
         </NormalRevealWrapper>
