@@ -22,7 +22,7 @@ const montserrat = Montserrat({
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
   useEffect(() => {
-    nprogress.configure({
+    (nprogress as any).configure({
       showSpinner: false,
       minimum: 0.2,
       trickleRate: 0.04,
