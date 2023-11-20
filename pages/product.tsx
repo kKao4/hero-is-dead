@@ -12,10 +12,10 @@ export default function Page() {
       <Container>
         <ProductTitle />
         <div className="grid justify-between pt-2 pb-16 md:px-8 md:grid-cols-3 lg:pb-24 gap-y-10 lg:gap-y-12 xl:gap-y-16 gap-x-6 lg:gap-x-10 xl:gap-x-14">
-          <Product img={bdboxImg} title="Anh hùng đã chết! Blu-ray BOX" />
-          <Product img={opImg} title="Chủ đề OP &#34;Chết!&#34; Masayoshi Oishi" />
-          <Product img={comic1Img} title="Truyện tranh gốc" />
-          <Product img={bdboxImg} title="Anh hùng đã chết! Blu-ray BOX" />
+          <Product href="/" img={bdboxImg} title="Anh hùng đã chết! Blu-ray BOX" />
+          <Product href="/product/music-op" img={opImg} title="Chủ đề OP &#34;Chết!&#34; Masayoshi Oishi" />
+          <Product href="/" img={comic1Img} title="Truyện tranh gốc" />
+          <Product href="/" img={bdboxImg} title="Anh hùng đã chết! Blu-ray BOX" />
         </div>
       </Container>
     </>
