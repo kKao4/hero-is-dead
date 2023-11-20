@@ -29,6 +29,8 @@ const DynamicLightBox = dynamic(() => import("@/components/home/LazyLightBox"), 
   ssr: false
 })
 
+const sockImages = [image1, image2, image3, image4, image5, image6]
+
 export const getStaticProps: GetStaticProps<{ newData: NewType }> = async () => {
   await dbConnect();
   const news = await New.find({}).sort({ updatedAt: "desc" });
@@ -166,12 +168,9 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
           </Title>
         </NormalRevealWrapper>
         <div className="grid justify-between grid-cols-6 gap-y-4">
-          <SockImage src={image1} handleOnClick={() => setIndex(0)} />
-          <SockImage src={image2} handleOnClick={() => setIndex(1)} />
-          <SockImage src={image3} handleOnClick={() => setIndex(2)} />
-          <SockImage src={image4} handleOnClick={() => setIndex(3)} />
-          <SockImage src={image5} handleOnClick={() => setIndex(4)} />
-          <SockImage src={image6} handleOnClick={() => setIndex(5)} />
+          {sockImages.map((sockImage, i) => {
+            return <SockImage key={i} src={sockImage} handleOnClick={() => setIndex(i + 1)} />
+          })}
         </div>
         <div className="h-8 md:h-10" />
       </BoxNews>

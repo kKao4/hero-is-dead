@@ -1,7 +1,5 @@
 import Container from "@/components/Container";
 import ProductTitle from "@/components/product/ProductTitle";
-import decoTop from "@/assets/deco_center_top.svg"
-import decoBottom from "@/assets/deco_center_bottom.svg"
 import Image from "next/image";
 import opImg from "@/assets/op.jpg"
 import RedHeader from "@/components/product/RedHeader";
@@ -23,7 +21,7 @@ export default function Page() {
         <div className="md:px-4 pb-14 md:pb-20">
           <div className="flex flex-col md:flex-row gap-y-8">
             <div className="basis-[44%] shrink-0 px-6 md:px-0">
-              <Image className="w-[435px] mx-auto" src={opImg} alt="" priority={true} quality={100} />
+              <Image className="w-[435px] mx-auto" src={opImg} alt="" priority={true} quality={100} placeholder="blur" />
             </div>
             <div className="md:px-12 font-vn grow">
               <p className="text-lg md:text-xl font-bold">Ngày 7 tháng 4 năm 2023 Digital</p>
@@ -45,7 +43,7 @@ export default function Page() {
               </div>
               <RedHeader content="Âm nhạc được ghi lại" />
               <p className="mt-3 md:mt-4 font-medium md:text-lg">Chết! Chứa 5 bài hát bao gồm kích thước TV và nhạc cụ.</p>
-              <RedHeader content="Sự chỉ rõ" />
+              <RedHeader content="Lưu ý" />
               <p className="mt-3 md:mt-4 font-medium md:text-lg">Tặng kèm Blu-ray “Chết!” Video nhạc và các bản ghi âm khác</p>
               <p className="mt-2 md:mt-4 font-medium text-sm md:text-base">*Chỉ phiên bản giới hạn đầu tiên</p>
             </div>

@@ -5,9 +5,6 @@ import New from "@/models/new"
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { parseISO, format } from "date-fns"
-import decoTop from "@/assets/deco_center_top.svg"
-import decoBottom from "@/assets/deco_center_bottom.svg"
-import Image from "next/image"
 import NormalRevealWrapper from "@/components/NormalRevealWrapper"
 import Link from "next/link"
 import OctagonalBox from "@/components/OctagonalBox"
@@ -45,8 +42,8 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
         <div className="py-6 lg:py-12">
           <HeaderDecoTopBottom>
             <div className="">
-              <p className="text-lg font-normal text-center font-vn">{format(parseISO(newData.createdAt as unknown as string), "uuuu/MM/dd")}</p>
-              <p className="text-3xl font-bold text-center font-vn text-third-brown">{newData.title}</p>
+              <p className="md:text-lg font-normal text-center font-vn">{format(parseISO(newData.createdAt as unknown as string), "uuuu/MM/dd")}</p>
+              <p className="text-2xl md:text-3xl font-bold text-center font-vn text-third-brown">{newData.title}</p>
             </div>
           </HeaderDecoTopBottom>
         </div>
