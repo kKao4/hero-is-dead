@@ -8,7 +8,7 @@ export default function Title({ children }: { children?: React.ReactNode }) {
           <div className="">
             {children}
           </div>
-          <div className="grow border-t border-1.5 border-gray-700 mb-5 md:mb-10 -ml-4" />
+          <div className="grow border-t border-1.5 border-gray-700 mb-5 md:mb-10 -ml-2 md:-ml-4" />
         </>
       ) : (
         <div className={`grow border-t border-1.5 border-gray-700`} />

@@ -11,8 +11,8 @@ export default function Page() {
     <Container>
       <NormalRevealWrapper>
         <Title>
-          <p className="mx-2 text-5xl leading-none text-center tracking-root md:text-7xl">On<span className="text-third-brown">A</span>ir</p>
-          <p className="-ml-4 text-xs font-bold leading-none tracking-wide text-center font-vn md:-mt-1 md:text-lg">Thông tin phát sóng</p>
+          <p className="mx-2 text-4xl leading-none text-center sm:text-5xl tracking-root md:text-7xl">On<span className="text-third-brown">A</span>ir</p>
+          <p className="-ml-4 text-xs font-bold leading-none tracking-wide capitalize text-center font-vn md:-mt-1 md:text-lg">Thông tin phát sóng</p>
         </Title>
       </NormalRevealWrapper>
       <div className="xl:px-10">

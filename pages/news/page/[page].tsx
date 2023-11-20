@@ -51,8 +51,8 @@ export default function Page({ newsData, pages }: InferGetStaticPropsType<typeof
       <Container>
         <NormalRevealWrapper>
           <Title>
-            <p className="mx-2 text-5xl leading-none text-center tracking-root md:text-7xl">Ne<span className="text-root-brown">w</span>s</p>
-            <p className="-ml-4 text-xs font-bold leading-none tracking-wide text-center font-vn md:-mt-1 md:text-lg">Thông tin mới nhất</p>
+            <p className="mx-2 text-4xl leading-none text-center sm:text-5xl tracking-root md:text-7xl">Ne<span className="text-root-brown">w</span>s</p>
+            <p className="-ml-4 text-xs font-bold leading-none capitalize tracking-wide text-center font-vn md:-mt-1 md:text-lg">Thông tin mới nhất</p>
           </Title>
         </NormalRevealWrapper>
         <NormalRevealWrapper>

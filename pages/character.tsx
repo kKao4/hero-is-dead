@@ -29,8 +29,6 @@ import diegoVisual from "@/assets/diego_visual_1.png"
 import milyVisual from "@/assets/mily_visual_1.png"
 import belarcoVisual from "@/assets/belarco_visual_1.png"
 import friedrichVisual from "@/assets/friedrich_visual_1.png"
-import dynamic from "next/dynamic";
-const DynamicCharacterDetail = dynamic(() => import("@/components/character/CharacterDetail"))
 
 export default function Page() {
   const [openingCharacter, setOpeningCharacter] = useState<string>("touka")
@@ -39,7 +37,7 @@ export default function Page() {
       <Container>
         <Title>
           <p className="mx-2 text-4xl leading-none text-center sm:text-5xl tracking-root md:text-7xl">Cha<span className="text-third-brown">r</span>acter</p>
-          <p className="-ml-4 text-xs font-bold leading-none tracking-wide text-center font-vn md:-mt-1 md:text-lg">Nhân vật</p>
+          <p className="-ml-4 text-xs font-bold leading-none tracking-wide capitalize text-center font-vn md:-mt-1 md:text-lg">Nhân vật</p>
         </Title>
       </Container>
       <Container maxWidth="1280px" className="pt-6 pb-32 sm:pt-9">
@@ -69,85 +67,84 @@ export default function Page() {
             cv="Dân làng: Wataru Kato / Anh hùng: Junichi Toki"
             content="Một nông dân sống ở làng Cheza. Cô ấy có một tính cách dâm đãng và đặc biệt bị ám ảnh bởi cây sim. Nỗi ám ảnh của anh ấy mạnh mẽ đến mức anh ấy thậm chí còn coi củ cải mà anh ấy lớn lên như lông tơ và bắt anh ấy phải đi tất. Bạn thời thơ ấu của Yuna. Mặc dù trình độ phép thuật của anh ấy chỉ ở mức của một đứa trẻ nhưng anh ấy rất tháo vát nhờ kinh nghiệm trong quá khứ. Vì lý do nào đó, linh hồn của anh được chuyển vào cơ thể của anh hùng Shion."
           />
-          {/* TODO: add meta for website */}
-          <DynamicCharacterDetail
+          <CharacterDetail
             isOpen={openingCharacter === "anri"}
             img={anriVisual}
             character="Anri Hazeworth"
             cv="Ayana Taketatsu"
             content="Một cô gái chiêu hồn từng tham gia cuộc phiêu lưu cùng anh hùng Shion. Khi còn sống, anh nghe thấy Shion nói: “Khi tôi chết, tôi muốn người khác chiếm lấy cơ thể này”, nên anh đã chuyển linh hồn của Touka vào cơ thể của Shion. Thuật chiêu hồn được coi là một nghệ thuật bị cấm và bị người dân bức hại."
           />
-          <DynamicCharacterDetail
+          <CharacterDetail
             isOpen={openingCharacter === "yuna"}
             img={yunaVisual}
             character="Yuna Yunis"
             cv="Hibiki Yamamura"
             content="Một cô gái sống ở làng Cheza và là bạn thời thơ ấu của Touka. Anh ấy có một phong cách lý tưởng cho Touka và thường được Futomomo nhắm đến. Cô được anh hùng Shion ngưỡng mộ từ ba năm trước, khi bị một con quỷ tấn công, cô đã được cứu. Cuối cùng anh ấy bắt đầu cuộc hành trình với Touka trong cơ thể của Shion. Sức mạnh phép thuật của anh ấy ở mức độ của một đứa trẻ, nhưng anh ấy đang học võ thuật."
           />
-          <DynamicCharacterDetail
+          <CharacterDetail
             isOpen={openingCharacter === "sion"}
             img={sionVisual}
             character="Sion Breydan"
             cv="Junichi Toki"
             content="Một anh hùng đã sử dụng thánh kiếm để phong ấn cánh cổng địa ngục và cứu thế giới ba năm trước. Anh ấy có tính cách tốt bụng và tốt bụng với mọi người. Anh ta nhận được sự ủng hộ to lớn nhờ khả năng chiến đấu phi thường, sức mạnh ma thuật và sức thu hút của mình. Tôi tình cờ ghé qua làng Cheza và gặp Yuna và Touka. Anh cứu anh ta khỏi con quỷ, nhưng sau đó rơi xuống một cái hố do Touka chuẩn bị và chết."
           />
-          <DynamicCharacterDetail
+          <CharacterDetail
             isOpen={openingCharacter === "malgrit"}
             img={malgritVisual}
             character="Marguerite Farom"
             cv="Yuryka Kubo"
             content="Công chúa thứ ba của Vương quốc Farom. Nhà vua nói với cô rằng cô sẽ kết hôn với một anh hùng, và ngay từ khi còn nhỏ cô đã được huấn luyện về mọi mặt, bao gồm học thuật, nghệ thuật, nghệ thuật và lễ nghi. Tuy nhiên, vì sự giáo dục này, anh ấy bị căng thẳng nội tâm và mắc một căn bệnh nào đó."
           />
-          <DynamicCharacterDetail
+          <CharacterDetail
             isOpen={openingCharacter === "kyle"}
             img={kyleVisual}
             character="Kyle Ozment"
             cv="Yuichi Nakamura"
             content="Một kiếm sĩ từng phiêu lưu cùng Shion. Anh là con trai cả của một trong những gia đình quý tộc nhất lục địa, có năng lực tuyệt vời, ngoại hình xinh đẹp và sức lôi cuốn, nhưng anh lại có mặc cảm tự ti và tình yêu méo mó dành cho Shion, người được chọn làm Thánh Kiếm."
           />
-          <DynamicCharacterDetail
+          <CharacterDetail
             isOpen={openingCharacter === "esel"}
             img={eselVisual}
             character="Esel Borgnine"
             cv="Sayaka Ohara"
             content="Một nữ tên trộm tiền thưởng. Anh gặp Touka ba năm trước. Anh ấy chuyên về chiến thuật sử dụng bẫy, và trong quá khứ Touka đã yêu cầu anh ấy trở thành người học việc của mình và anh ấy gọi anh ấy là &#34;Sư phụ&#34;. Anh ta đang âm mưu ám sát anh hùng."
           />
-          <DynamicCharacterDetail
+          <CharacterDetail
             isOpen={openingCharacter === "belarco"}
             img={belarcoVisual}
             character="Wataru Hatano"
             cv="Wataru Hatano"
             content="Nhà thám hiểm. Ông được công chúng biết đến là người đã chôn cất hơn 100 con quỷ trong trận chiến ba năm trước. Anh ta xuất hiện trong mọi cảnh trong cuộc phiêu lưu của Touka, nhưng sức mạnh thực sự của anh ta vẫn bị che giấu trong bí ẩn."
           />
-          <DynamicCharacterDetail
+          <CharacterDetail
             isOpen={openingCharacter === "isaac"}
             img={isaacVisual}
             character="Isaac Gardner"
             cv="Takashi Aoki"
             content="Nhà thám hiểm. Ông được công chúng biết đến là người đã chôn cất hơn 100 con quỷ trong trận chiến ba năm trước. Anh ta xuất hiện trong mọi cảnh trong cuộc phiêu lưu của Touka, nhưng sức mạnh thực sự của anh ta vẫn bị che giấu trong bí ẩn."
           />
-          <DynamicCharacterDetail
+          <CharacterDetail
             isOpen={openingCharacter === "leland"}
             img={lelandVisual}
             character="Isaac Gardner"
             cv="Chikahiro Kobayashi"
             content="Giám đốc một trại trẻ mồ côi. Một người đàn ông hiền lành đeo kính."
           />
-          <DynamicCharacterDetail
+          <CharacterDetail
             isOpen={openingCharacter === "friedrich"}
             img={friedrichVisual}
             character="Friedrich Norstein"
             cv="Kensho Ono"
             content="Thủ lĩnh của các Necromancer. Anh ta rất mong muốn trả thù con người."
           />
-          <DynamicCharacterDetail
+          <CharacterDetail
             isOpen={openingCharacter === "diego"}
             img={diegoVisual}
             character="Diego Valentine"
             cv="Shintaro Asanuma"
             content="Đối tác của Friedrich. Anh ta sẽ làm bất cứ điều gì cần thiết để đạt được mục tiêu của riêng mình và anh ta đã khuất phục lũ quỷ một cách ích kỷ."
           />
-          <DynamicCharacterDetail
+          <CharacterDetail
             isOpen={openingCharacter === "mily"}
             img={milyVisual}
             character="Milly Yunis"

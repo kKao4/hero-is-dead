@@ -11,6 +11,7 @@ import Image from "next/image"
 import NormalRevealWrapper from "@/components/NormalRevealWrapper"
 import Link from "next/link"
 import OctagonalBox from "@/components/OctagonalBox"
+import HeaderDecoTopBottom from "@/components/HeaderDecoTopBottom"
 
 export const getStaticProps: GetStaticProps<{ newData: NewType }> = async (context) => {
   await dbConnect()
@@ -41,13 +42,13 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
   return (
     <>
       <NormalRevealWrapper>
-        <div className="flex flex-col py-6 mx-auto lg:py-12 w-fit gap-y-2 md:gap-y-4">
-          <Image src={decoTop} alt="" className="h-10 lg:h-14" quality={0} priority={false} />
-          <div className="">
-            <p className="text-lg font-normal text-center font-vn">{format(parseISO(newData.createdAt as unknown as string), "uuuu/MM/dd")}</p>
-            <p className="text-3xl font-bold text-center font-vn text-third-brown">{newData.title}</p>
-          </div>
-          <Image src={decoBottom} alt="" className="h-10 lg:h-14" quality={0} priority={false} />
+        <div className="py-6 lg:py-12">
+          <HeaderDecoTopBottom>
+            <div className="">
+              <p className="text-lg font-normal text-center font-vn">{format(parseISO(newData.createdAt as unknown as string), "uuuu/MM/dd")}</p>
+              <p className="text-3xl font-bold text-center font-vn text-third-brown">{newData.title}</p>
+            </div>
+          </HeaderDecoTopBottom>
         </div>
       </NormalRevealWrapper>
       <div className="py-8 pb-16 bg-second-brown lg:py-12 lg:pb-24">

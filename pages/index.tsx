@@ -85,8 +85,8 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
       <BoxNews>
         <NormalRevealWrapper>
           <Title>
-            <p className="mx-2 text-5xl leading-none text-center tracking-root md:text-7xl">Ne<span className="text-root-brown">w</span>s</p>
-            <p className="-ml-4 text-xs font-bold leading-none tracking-wide text-center font-vn md:-mt-1 md:text-lg">Thông tin mới nhất</p>
+            <p className="mx-2 text-4xl leading-none text-center sm:text-5xl tracking-root md:text-7xl">Ne<span className="text-root-brown">w</span>s</p>
+            <p className="-ml-4 text-xs font-bold leading-none tracking-wide capitalize text-center font-vn md:-mt-1 md:text-lg">Thông tin mới nhất</p>
           </Title>
         </NormalRevealWrapper>
         <NormalRevealWrapper>
@@ -161,8 +161,8 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
       <BoxNews>
         <NormalRevealWrapper>
           <Title>
-            <div className="mx-2 text-4xl sm:text-5xl leading-none text-center tracking-root md:text-7xl">Thigh high socks</div>
-            <p className="-ml-4 text-xs font-bold leading-none tracking-wide text-center font-vn md:-mt-1 md:text-lg">Tất Quá Gối</p>
+            <div className="mx-2 text-4xl leading-none text-center sm:text-5xl tracking-root md:text-7xl">Thigh high socks</div>
+            <p className="-ml-4 text-xs font-bold capitalize leading-none tracking-wide text-center font-vn md:-mt-1 md:text-lg">Tất Quá Gối</p>
           </Title>
         </NormalRevealWrapper>
         <div className="grid justify-between grid-cols-6 gap-y-4">
