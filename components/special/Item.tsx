@@ -2,8 +2,8 @@ import Image from "next/image"
 
 export default function Item({ img, isVideo = false, title, handleOnClick }: { img: any, isVideo?: boolean, title: string, handleOnClick: any }) {
   return (
-    <div className="col-span-1 space-y-4 transition-opacity duration-300 ease-out cursor-pointer hover:opacity-70 group" onClick={handleOnClick}>
-      <div className="relative">
+    <div className="col-span-1 transition-opacity duration-300 ease-out cursor-pointer hover:opacity-70 group" onClick={handleOnClick}>
+      <div className="relative w-fit mx-auto space-y-2 lg:space-y-4">
         <Image src={img} alt="" priority={true} quality={100} placeholder="blur" />
         {isVideo && (
           <>
@@ -11,8 +11,8 @@ export default function Item({ img, isVideo = false, title, handleOnClick }: { i
             <div className="absolute transition-opacity duration-300 ease-out -translate-x-1/2 -translate-y-1/2 rounded-full opacity-100 group-hover:opacity-0 h-18 w-18 player bg-black/20 top-1/2 left-1/2" />
           </>
         )}
+        <p className="md:text-lg font-bold font-vn">{title}</p>
       </div>
-      <p className="text-lg font-bold font-vn">{title}</p>
     </div>
   )
 }

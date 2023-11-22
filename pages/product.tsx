@@ -9,7 +9,7 @@ import NormalRevealWrapper from "@/components/NormalRevealWrapper";
 export default function Page() {
   return (
     <>
-      {/* TODO: scroll to top btn and responsive for special page */}
+      {/* TODO: responsive for special page */}
       <Container>
         <NormalRevealWrapper>
           <ProductTitle />

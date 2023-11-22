@@ -43,7 +43,7 @@ export default function Page() {
           </Title>
         </NormalRevealWrapper>
         <NormalRevealWrapper>
-          <div className="grid grid-cols-2 px-8 pt-6 pb-24 gap-x-16 gap-y-12">
+          <div className="grid md:grid-cols-2 px-4 lg:px-8 pt-4 md:pt-6 pb-14 md:pb-24 gap-x-8 lg:gap-x-16 gap-y-8 lg:gap-y-12">
             <Item img={radioThumb} title="Radio về người anh hùng đã chết của Wataru Kato và Junichi Toki" handleOnClick={() => window.open("https://www.onsen.ag/program/heroisdead", "_blank")} />
             {/* modal items */}
             {specialModalItems.map((item, i) => {
