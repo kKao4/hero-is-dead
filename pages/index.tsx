@@ -7,12 +7,6 @@ import { useEffect, useState } from "react";
 import ReactPlayer from 'react-player/lazy'
 import rootImage from "@/assets/visual_04_chara.webp"
 import logo from "@/assets/logo_1line.svg"
-import image1 from "@/assets/futomomo_01.jpg"
-import image2 from "@/assets/futomomo_02.jpg"
-import image3 from "@/assets/futomomo_03.jpg"
-import image4 from "@/assets/futomomo_04.jpg"
-import image5 from "@/assets/futomomo_05.jpg"
-import image6 from "@/assets/futomomo_06.jpg"
 import Title from "@/components/Title";
 import BoxNews from "@/components/home/BoxNews";
 import SockImage from "@/components/home/SockImage";
@@ -21,15 +15,16 @@ import OctagonalBox from "@/components/OctagonalBox";
 import ButtonTwitter from "@/components/home/ButtonTwitter";
 import { RevealWrapper } from "next-reveal";
 import Script from "next/script";
+import { useIsClient } from "usehooks-ts";
+import { sockImages } from "@/data"
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen"
+import Zoom from "yet-another-react-lightbox/plugins/zoom"
+import Lightbox from "yet-another-react-lightbox";
+import NextJsImage from "@/components/NextJsImage";
 import dynamic from "next/dynamic";
-const DynamicModalVideo = dynamic(() => import("@/components/home/ModalVideo"), {
+const DynamicModalVideo = dynamic(() => import("@/components/ModalVideo"), {
   ssr: false
 })
-const DynamicLightBox = dynamic(() => import("@/components/home/LazyLightBox"), {
-  ssr: false
-})
-
-const sockImages = [image1, image2, image3, image4, image5, image6]
 
 export const getStaticProps: GetStaticProps<{ newData: NewType }> = async () => {
   await dbConnect();
@@ -39,24 +34,26 @@ export const getStaticProps: GetStaticProps<{ newData: NewType }> = async () => 
 }
 
 export default function Page({ newData }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const isClient = useIsClient()
   const [isOpenVideoLightBox, setIsOpenVideoLightBox] = useState<boolean>(false)
-  const [hasWindow, setHasWindow] = useState(false);
   const [index, setIndex] = useState<number>(-1)
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setHasWindow(true);
-    }
-  }, []);
   const handleCloseLightBox = () => {
     setIndex(-1)
   }
+  useEffect(() => {
+    if (index >= 0) {
+      document.documentElement.style.overflow = "hidden"
+    } else {
+      document.documentElement.style.overflow = "auto"
+    }
+  }, [index])
   return (
     <>
       <Script src="https://platform.twitter.com/widgets.js" />
       {/* ========= Modal Video ========= */}
       <DynamicModalVideo
+        url="https://www.youtube.com/embed/nQmCf8JE0G8"
         isOpenVideoLightBox={isOpenVideoLightBox}
-        hasWindow={hasWindow}
         handleCloseModal={() => setIsOpenVideoLightBox(false)}
       />
       <div className="max-w-full sm:max-w-[1160px] sm:px-4 lg:px-14 xl:px-0 pt-4 mx-auto">
@@ -70,7 +67,7 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
         {/* ========= Root Image ========= */}
         <div className="relative -mt-1 overflow-hidden sm:mx-9">
           <RevealWrapper className="load-hidden" scale={1.2} duration={1000} distance="0" easing="ease-out" delay={200}>
-            <Image src={rootImage} alt="" priority={true} quality={100} placeholder="blur" />
+            <Image src={rootImage} alt="" priority={true} quality={100} />
           </RevealWrapper>
           <RevealWrapper className="load-hidden" scale={1.2} duration={1000} distance="0" easing="ease-out" delay={200}>
             <Image src={logo} quality={100} priority={true} alt="" className="absolute scale-90 -translate-x-1/2 bottom-6 sm:bottom-14 xl:bottom-24 title sm:scale-110 lg:scale-125 xl:scale-165 left-1/2" />
@@ -88,7 +85,7 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
         <NormalRevealWrapper>
           <Title>
             <p className="mx-2 text-4xl leading-none text-center sm:text-5xl tracking-root md:text-7xl">Ne<span className="text-root-brown">w</span>s</p>
-            <p className="-ml-4 text-xs font-bold leading-none tracking-wide capitalize text-center font-vn md:-mt-1 md:text-lg">Thông tin mới nhất</p>
+            <p className="-ml-4 text-xs font-bold leading-none tracking-wide text-center capitalize font-vn md:-mt-1 md:text-lg">Thông tin mới nhất</p>
           </Title>
         </NormalRevealWrapper>
         <NormalRevealWrapper>
@@ -109,7 +106,7 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
           className="relative flex items-center justify-center w-full overflow-hidden h-[240px] md:h-[300px] xl:h-[400px] cursor-pointer group"
           onClick={() => setIsOpenVideoLightBox(true)}
         >
-          {hasWindow && (
+          {isClient && (
             <ReactPlayer
               className="scale-[2.4] aspect-video"
               url="https://www.youtube.com/embed/nQmCf8JE0G8?disablekb=1"
@@ -164,18 +161,28 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
         <NormalRevealWrapper>
           <Title>
             <div className="mx-2 text-4xl leading-none text-center sm:text-5xl tracking-root md:text-7xl">Thigh high socks</div>
-            <p className="-ml-4 text-xs font-bold capitalize leading-none tracking-wide text-center font-vn md:-mt-1 md:text-lg">Tất Quá Gối</p>
+            <p className="-ml-4 text-xs font-bold leading-none tracking-wide text-center capitalize font-vn md:-mt-1 md:text-lg">Tất Quá Gối</p>
           </Title>
         </NormalRevealWrapper>
-        <div className="grid justify-between grid-cols-6 gap-y-4">
-          {sockImages.map((sockImage, i) => {
-            return <SockImage key={i} src={sockImage} handleOnClick={() => setIndex(i + 1)} />
-          })}
-        </div>
+        <NormalRevealWrapper>
+          <div className="grid justify-between grid-cols-6 gap-y-4">
+            {sockImages.map((sockImage, i) => {
+              return <SockImage key={i} src={sockImage} handleOnClick={() => setIndex(i + 1)} />
+            })}
+          </div>
+        </NormalRevealWrapper>
         <div className="h-8 md:h-10" />
       </BoxNews>
       {/* ========= Light Box ========= */}
-      <DynamicLightBox index={index} handleCloseLightBox={handleCloseLightBox} />
+      <Lightbox
+        index={index}
+        slides={sockImages}
+        open={index >= 0}
+        close={handleCloseLightBox}
+        controller={{ closeOnBackdropClick: true }}
+        plugins={[Fullscreen, Zoom]}
+        render={{ slide: NextJsImage }}
+      />
     </>
   )
 }

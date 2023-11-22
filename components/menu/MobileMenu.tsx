@@ -17,7 +17,7 @@ export default function MobileMenu() {
           </Link>
         </div>
       </MenuRevealWrapper>
-      <div className="fixed z-50 block w-8 top-3 right-3 h-9 lg:hidden animate__animated animate__fadeInDown" onClick={() => dispatch(toggleOpenModalMenu())}>
+      <div className="fixed z-50 block w-8 top-3 right-3 h-9 lg:hidden animate__animated animate__fadeInDown animate__delay-2s" onClick={() => dispatch(toggleOpenModalMenu())}>
         <div className={`${globalState.isOpenModalMenu ? "rotate-[44deg] translate-y-[9px] w-[33px]" : "rotate-0 w-8"} transition-transform top-[7px] duration-300  ease-out h-[3px] absolute bg-black`} />
         <div className={`${globalState.isOpenModalMenu ? "opacity-0" : "opacity-100"} h-[3px] w-full transition-opacity duration-300 ease-out absolute top-1/2 -translate-y-1/2 bg-black`} />
         <div className={`${globalState.isOpenModalMenu ? "-rotate-[44deg] -translate-y-2.5 w-[33px]" : "rotate-0 w-8"} h-[3px] transition-transform duration-300 ease-out absolute bottom-[6px] bg-black`} />

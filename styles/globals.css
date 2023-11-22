@@ -4,6 +4,7 @@
 
 :root {
   --root-brown: rgb(196, 156, 97);
+  --animate-delay: 0.1s !important;
 }
 
 html.sr .load-hidden {
@@ -13,6 +14,10 @@ html.sr .load-hidden {
 .title {
   filter: drop-shadow(0 0 0.25rem white) drop-shadow(0 0 0.125rem white)
     drop-shadow(0 0 0.5rem white);
+}
+
+.player {
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
 }
 
 .yarl__root {

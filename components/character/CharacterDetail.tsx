@@ -1,9 +1,9 @@
 import OctagonalBox from "../OctagonalBox";
 import Image from "next/image";
 
-export default function CharacterDetail({ img, character, cv, content, isOpen, isFirst = false }: { img: any, character: string, cv: string, content: string, isOpen: boolean, isFirst?: boolean }) {
+export default function CharacterDetail({ img, character, cv, content, isOpen }: { img: any, character: string, cv: string, content: string, isOpen: boolean }) {
   return (
-    <div className={`${isOpen ? "opacity-100 delay-300" : "opacity-0"} transition-opacity ease-out ${isFirst ? "" : "absolute"} duration-300 top-0 left-0 w-full`}>
+    <div className={`${isOpen ? "opacity-100 delay-300" : "opacity-0"} transition-opacity ease-out ${character === "Touka Scott" ? "" : "absolute"} duration-300 top-0 left-0 w-full`}>
       <OctagonalBox
         boxClassName="max-w-[720px] xl:max-w-[820px] relative mx-auto"
         contentClassName="relative pb-6 sm:pb-8 pt-10 xl:pt-12 lg:pr-52 xl:pr-56 px-4 sm:px-8 font-vn font-bold"
