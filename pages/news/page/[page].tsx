@@ -1,4 +1,4 @@
-import Title from "@/components/Title";
+import Title from "@/components/global/Title/Title";
 import dbConnect from "@/lib/dbConnect";
 import New, { NewType } from "@/models/new";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next/types";
@@ -6,10 +6,10 @@ import { parseISO, format } from "date-fns"
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import NormalRevealWrapper from "@/components/NormalRevealWrapper";
-import OctagonalBox from "@/components/OctagonalBox";
+import NormalRevealWrapper from "@/components/global/revealWrapper/NormalRevealWrapper";
+import OctagonalBox from "@/components/global/octagonalBox/OctagonalBox";
 import Paginate from "@/components/news/Paginate";
-import Container from "@/components/Container";
+import Container from "@/components/global/Container";
 
 export const getStaticProps: GetStaticProps<{ newsData: NewType[], pages: number }> = async (context) => {
   await dbConnect();

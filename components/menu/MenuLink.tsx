@@ -28,7 +28,7 @@ export default function MenuLink({ title_1, title_2, mobile, href, url }: { titl
   } else {
     return (
       <div
-        className={`${mobile ? "mx-auto" : ""} flex flex-row items-center group gap-x-2`}
+        className={`${mobile ? "mx-auto" : ""} flex flex-row items-center group gap-x-2 cursor-pointer`}
         onClick={() => {
           window.open(url, "_blank")
           if (mobile) {

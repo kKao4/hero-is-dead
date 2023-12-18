@@ -1,11 +1,11 @@
-import Container from "@/components/Container";
-import HeaderDecoTopBottom from "@/components/HeaderDecoTopBottom";
+import Container from "@/components/global/Container";
+import HeaderDecoTopBottom from "@/components/global/header/HeaderDecoTopBottom";
 import ProductTitle from "@/components/product/ProductTitle";
 import Image from "next/image";
 import kaminokuni from "@/assets/kaminokuni.jpg"
 import Comic from "@/components/product/Comic";
 import { comics } from "@/data";
-import NormalRevealWrapper from "@/components/NormalRevealWrapper";
+import NormalRevealWrapper from "@/components/global/revealWrapper/NormalRevealWrapper";
 
 export default function Page() {
   return (

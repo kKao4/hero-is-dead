@@ -1,4 +1,4 @@
-import Modal from "../Modal";
+import Modal from "../global/modal/Modal";
 import Image from "next/image";
 
 export default function ModalCast({ isOpen, handleOnClose, img, content, character, cast }: { isOpen: boolean, handleOnClose: any, img: any, content: string, character: string, cast: string }) {

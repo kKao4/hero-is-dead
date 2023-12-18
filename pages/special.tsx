@@ -1,5 +1,5 @@
-import Container from "@/components/Container";
-import Title from "@/components/Title";
+import Container from "@/components/global/Container";
+import Title from "@/components/global/Title/Title";
 import radioThumb from "@/assets/thumb_radio.webp";
 import Item from "@/components/special/Item";
 import { imagesLightBox, specialModalItems, specialLightBoxItems } from "@/data";
@@ -9,8 +9,8 @@ import Lightbox from "yet-another-react-lightbox";
 import NextJsImage from "@/components/NextJsImage";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
-import NormalRevealWrapper from "@/components/NormalRevealWrapper";
-const DynamicModalVideo = dynamic(() => import("@/components/ModalVideo"))
+import NormalRevealWrapper from "@/components/global/revealWrapper/NormalRevealWrapper";
+const DynamicModalVideo = dynamic(() => import("@/components/global/modal/ModalVideo"))
 
 export default function Page() {
   const [openingLightBox, setOpeningLightBox] = useState<string>("")

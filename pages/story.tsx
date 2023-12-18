@@ -1,5 +1,5 @@
-import Container from "@/components/Container";
-import Title from "@/components/Title";
+import Container from "@/components/global/Container";
+import Title from "@/components/global/Title/Title";
 
 export default function Page() {
   return (

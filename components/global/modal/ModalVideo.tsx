@@ -2,11 +2,13 @@ import ReactPlayer from "react-player/lazy";
 import Modal from "./Modal";
 import { useRef } from "react";
 import { useOnClickOutside, useIsClient } from 'usehooks-ts'
+import { useKeyPressEscape } from "@/hooks/useKeyPressEscape";
 
 export default function ModalVideo({ handleCloseModal, isOpenVideoLightBox, url }: { handleCloseModal: any, isOpenVideoLightBox: boolean, url: string }) {
   const isClient = useIsClient()
   const videoRef = useRef<any>(null)
   useOnClickOutside(videoRef, handleCloseModal)
+  useKeyPressEscape(handleCloseModal)
   return (
     <Modal isOpen={isOpenVideoLightBox} handleOnClose={handleCloseModal}>
       <div className="flex items-center justify-center w-full h-full">

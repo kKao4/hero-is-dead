@@ -1,4 +1,4 @@
-import OctagonalBox from "../OctagonalBox";
+import OctagonalBox from "../global/octagonalBox/OctagonalBox";
 
 export default function TvLink({ href, content, colSpan }: { href: string, content: string, colSpan?: string }) {
   return (

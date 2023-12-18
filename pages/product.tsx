@@ -1,10 +1,10 @@
-import Container from "@/components/Container";
+import Container from "@/components/global/Container";
 import bdboxImg from "@/assets/bdbox.jpg"
 import opImg from "@/assets/op.jpg"
 import comic1 from "@/assets/comic_01.jpg"
 import Product from "@/components/product/Product";
 import ProductTitle from "@/components/product/ProductTitle";
-import NormalRevealWrapper from "@/components/NormalRevealWrapper";
+import NormalRevealWrapper from "@/components/global/revealWrapper/NormalRevealWrapper";
 
 export default function Page() {
   return (

@@ -3,10 +3,10 @@ import 'animate.css';
 import "yet-another-react-lightbox/styles.css";
 import type { AppProps } from 'next/app'
 import localFont from 'next/font/local'
-import Menu from '@/components/menu/menu'
+import Menu from '@/components/menu/Menu'
 import { store } from '@/store'
 import { Provider } from 'react-redux'
-import Footer from '@/components/Footer';
+import Footer from '@/components/global/footer/Footer';
 import { Montserrat } from "next/font/google"
 import "@/styles/nprogress.css"
 import { useRouter } from 'next/router';

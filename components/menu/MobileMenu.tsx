@@ -3,7 +3,7 @@ import logo_mobile from "@/assets/logo_1line.svg"
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import { globalSelector, toggleOpenModalMenu } from '@/redux/globalSlice'
-import MenuRevealWrapper from '../MenuRevealWrapper'
+import MenuRevealWrapper from '../global/revealWrapper/MenuRevealWrapper'
 
 export default function MobileMenu() {
   const globalState = useSelector(globalSelector)

@@ -5,10 +5,10 @@ import New from "@/models/new"
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { parseISO, format } from "date-fns"
-import NormalRevealWrapper from "@/components/NormalRevealWrapper"
+import NormalRevealWrapper from "@/components/global/revealWrapper/NormalRevealWrapper"
 import Link from "next/link"
-import OctagonalBox from "@/components/OctagonalBox"
-import HeaderDecoTopBottom from "@/components/HeaderDecoTopBottom"
+import OctagonalBox from "@/components/global/octagonalBox/OctagonalBox"
+import HeaderDecoTopBottom from "@/components/global/header/HeaderDecoTopBottom"
 
 export const getStaticProps: GetStaticProps<{ newData: NewType }> = async (context) => {
   await dbConnect()

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import NormalRevealWrapper from "../NormalRevealWrapper"
+import NormalRevealWrapper from "../global/revealWrapper/NormalRevealWrapper"
 
 export default function Paginate({ page, pages }: { page: string, pages: number }) {
   return (

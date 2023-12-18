@@ -17,7 +17,8 @@ export default function ModalMenu() {
   }, [globalState.isOpenModalMenu])
   return (
     <div
-      className={`${globalState.isOpenModalMenu ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-12"} ${isInvisible ? "invisible" : "visible"} transition-menu duration-300 fixed top-0 w-full ease-out h-screen py-18 bg-root-white z-40`}
+      className={`${globalState.isOpenModalMenu ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-12"} ${isInvisible ? "invisible" : "visible"} transition-menu duration-300 fixed top-0 w-full ease-out py-18 bg-root-white z-40`}
+      style={{ height: "100dvh" }}
       onTransitionEnd={() => {
         if (!globalState.isOpenModalMenu) {
           setIsInvisible(true)

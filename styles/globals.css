@@ -7,6 +7,10 @@
   --animate-delay: 0.1s !important;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 html.sr .load-hidden {
   visibility: hidden;
 }

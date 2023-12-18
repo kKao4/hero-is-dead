@@ -16,7 +16,8 @@ export default function Modal({ children, handleOnClose, isOpen }: { children?: 
   }, [isOpen])
   return (
     <div
-      className={`${translate} ${isOpen ? "opacity-100" : "opacity-0"} transition-opacity duration-400 ease-out fixed top-0 w-full h-screen bg-black/[0.82] z-50`}
+      className={`${translate} ${isOpen ? "opacity-100" : "opacity-0"} transition-opacity duration-400 ease-out fixed top-0 w-full bg-black/[0.82] z-50`}
+      style={{ height: "100dvh" }}
       onTransitionEnd={() => {
         if (!isOpen) {
           setTranslate("-translate-x-full")

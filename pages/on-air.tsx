@@ -1,10 +1,10 @@
-import Title from "@/components/Title";
-import OctagonalBox from "@/components/OctagonalBox";
+import Title from "@/components/global/Title/Title";
+import OctagonalBox from "@/components/global/octagonalBox/OctagonalBox";
 import TvRow from "@/components/on-air/TvRow";
-import Container from "@/components/Container";
+import Container from "@/components/global/Container";
 import DecoTitle from "@/components/on-air/DecoTitle";
 import TvLink from "@/components/on-air/TvLink";
-import NormalRevealWrapper from "@/components/NormalRevealWrapper";
+import NormalRevealWrapper from "@/components/global/revealWrapper/NormalRevealWrapper";
 
 export default function Page() {
   return (

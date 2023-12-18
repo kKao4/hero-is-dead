@@ -1,10 +1,10 @@
-import Title from "@/components/Title";
-import Container from "@/components/Container";
+import Title from "@/components/global/Title/Title";
+import Container from "@/components/global/Container";
 import { useState } from "react";
 import CharacterThumb from "@/components/character/CharacterThumb";
 import CharacterDetail from "@/components/character/CharacterDetail";
 import { characters } from "@/data";
-import NormalRevealWrapper from "@/components/NormalRevealWrapper";
+import NormalRevealWrapper from "@/components/global/revealWrapper/NormalRevealWrapper";
 import { RevealList } from "next-reveal";
 
 export default function Page() {

@@ -3,13 +3,13 @@ import Image from 'next/image'
 import logo from "@/assets/logo_2line.svg"
 import MenuLink from './MenuLink'
 import Link from 'next/link'
-import MenuRevealWrapper from '../MenuRevealWrapper'
+import MenuRevealWrapper from '../global/revealWrapper/MenuRevealWrapper'
 
 export default function DesktopMenu() {
   return (
     <MenuRevealWrapper>
       <div className="flex-row items-end hidden reveal_items lg:flex">
-        <Link href={"/"} className='transition-opacity ease-out hover:opacity-70'>
+        <Link href={"/"} className='transition-opacity ease-out hover:opacity-60'>
           <Image src={logo} alt="" priority={true} className="h-28 xl:h-32 w-fit" quality={50} />
         </Link>
         <div className="flex-col hidden py-5 ml-auto lg:flex gap-y-4">

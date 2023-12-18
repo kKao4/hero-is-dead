@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
   return (
-    <Html lang="en" className='sr'>
+    <Html lang="vi" className='sr'>
       <Head>
         <meta name="title" content="The legendary hero is dead, Yuusha ga shinda" />
         <meta name="description" content="Anh hùng chết yểu, Yuusha ga Shinda! Murabito no Ore ga Hotta Otoshiana ni Yuusha ga Ochita Kekka, The Legendary Hero is Dead!" />

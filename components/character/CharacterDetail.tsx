@@ -1,4 +1,4 @@
-import OctagonalBox from "../OctagonalBox";
+import OctagonalBox from "../global/octagonalBox/OctagonalBox";
 import Image from "next/image";
 
 export default function CharacterDetail({ img, character, cv, content, isOpen }: { img: any, character: string, cv: string, content: string, isOpen: boolean }) {

@@ -7,11 +7,11 @@ import { useEffect, useState } from "react";
 import ReactPlayer from 'react-player/lazy'
 import rootImage from "@/assets/visual_04_chara.webp"
 import logo from "@/assets/logo_1line.svg"
-import Title from "@/components/Title";
+import Title from "@/components/global/Title/Title";
 import BoxNews from "@/components/home/BoxNews";
 import SockImage from "@/components/home/SockImage";
-import NormalRevealWrapper from "@/components/NormalRevealWrapper";
-import OctagonalBox from "@/components/OctagonalBox";
+import NormalRevealWrapper from "@/components/global/revealWrapper/NormalRevealWrapper";
+import OctagonalBox from "@/components/global/octagonalBox/OctagonalBox";
 import ButtonTwitter from "@/components/home/ButtonTwitter";
 import { RevealWrapper } from "next-reveal";
 import Script from "next/script";
@@ -22,7 +22,7 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom"
 import Lightbox from "yet-another-react-lightbox";
 import NextJsImage from "@/components/NextJsImage";
 import dynamic from "next/dynamic";
-const DynamicModalVideo = dynamic(() => import("@/components/ModalVideo"), {
+const DynamicModalVideo = dynamic(() => import("@/components/global/modal/ModalVideo"), {
   ssr: false
 })
 
@@ -161,13 +161,14 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
         <NormalRevealWrapper>
           <Title>
             <div className="mx-2 text-4xl leading-none text-center sm:text-5xl tracking-root md:text-7xl">Thigh high socks</div>
-            <p className="-ml-4 text-xs font-bold leading-none tracking-wide text-center capitalize font-vn md:-mt-1 md:text-lg">Tất Quá Gối</p>
+            <p className="-ml-4 text-xs font-bold leading-none tracking-wide text-center capitalize font-vn md:-mt-1 md:text-lg">Tất Quá Gối (Cat Edition)</p>
           </Title>
         </NormalRevealWrapper>
+        {/* TODO: detect age modal*/}
         <NormalRevealWrapper>
           <div className="grid justify-between grid-cols-6 gap-y-4">
             {sockImages.map((sockImage, i) => {
-              return <SockImage key={i} src={sockImage} handleOnClick={() => setIndex(i + 1)} />
+              return <SockImage key={i} src={sockImage} handleOnClick={() => setIndex(i)} />
             })}
           </div>
         </NormalRevealWrapper>

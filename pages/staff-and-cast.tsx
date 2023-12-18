@@ -1,12 +1,12 @@
-import OctagonalBox from "@/components/OctagonalBox";
-import Title from "@/components/Title";
-import Container from "@/components/Container";
+import OctagonalBox from "@/components/global/octagonalBox/OctagonalBox";
+import Title from "@/components/global/Title/Title";
+import Container from "@/components/global/Container";
 import LearnMoreButton from "@/components/staff-and-cast/LearnMoreButton";
 import RowCast from "@/components/staff-and-cast/RowCast";
 import RowStaff from "@/components/staff-and-cast/RowStaff";
 import { useState } from "react";
 import dynamic from "next/dynamic";
-import NormalRevealWrapper from "@/components/NormalRevealWrapper";
+import NormalRevealWrapper from "@/components/global/revealWrapper/NormalRevealWrapper";
 import { casts } from "@/data";
 const DynamicModalCast = dynamic(() => import("@/components/staff-and-cast/ModalCast"))
 
