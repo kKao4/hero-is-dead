@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react"
+import { useLockedBody } from "usehooks-ts"
 
 export default function Modal({ children, handleOnClose, isOpen }: { children?: React.ReactNode, handleOnClose: any, isOpen: boolean }) {
   const [translate, setTranslate] = useState<string>("-translate-x-full")
+  const [locked, setLocked] = useLockedBody(false, "root")
   useEffect(() => {
     if (isOpen) {
       setTranslate("translate-x-0")
     }
   }, [isOpen])
+  // lock scroll
   useEffect(() => {
-    if (isOpen) {
-      document.documentElement.style.overflow = "hidden"
-    } else {
-      document.documentElement.style.overflow = "auto"
-    }
-  }, [isOpen])
+    setLocked(isOpen)
+  }, [isOpen, setLocked])
   return (
     <div
       className={`${translate} ${isOpen ? "opacity-100" : "opacity-0"} transition-opacity duration-400 ease-out fixed top-0 w-full bg-black/[0.82] z-50`}

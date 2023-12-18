@@ -40,13 +40,13 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
   const handleCloseLightBox = () => {
     setIndex(-1)
   }
-  useEffect(() => {
-    if (index >= 0) {
-      document.documentElement.style.overflow = "hidden"
-    } else {
-      document.documentElement.style.overflow = "auto"
-    }
-  }, [index])
+  // useEffect(() => {
+  //   if (index >= 0) {
+  //     document.documentElement.style.overflow = "hidden"
+  //   } else {
+  //     document.documentElement.style.overflow = "auto"
+  //   }
+  // }, [index])
   return (
     <>
       <Script src="https://platform.twitter.com/widgets.js" />
@@ -164,7 +164,6 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
             <p className="-ml-4 text-xs font-bold leading-none tracking-wide text-center capitalize font-vn md:-mt-1 md:text-lg">Tất Quá Gối (Cat Edition)</p>
           </Title>
         </NormalRevealWrapper>
-        {/* TODO: detect age modal*/}
         <NormalRevealWrapper>
           <div className="grid justify-between grid-cols-6 gap-y-4">
             {sockImages.map((sockImage, i) => {

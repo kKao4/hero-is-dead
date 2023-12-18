@@ -15,13 +15,6 @@ const DynamicModalVideo = dynamic(() => import("@/components/global/modal/ModalV
 export default function Page() {
   const [openingLightBox, setOpeningLightBox] = useState<string>("")
   const [index, setIndex] = useState<number>(-1)
-  useEffect(() => {
-    if (index >= 0) {
-      document.documentElement.style.overflow = "hidden"
-    } else {
-      document.documentElement.style.overflow = "auto"
-    }
-  }, [index])
   return (
     <>
       {/* ====== Modal Video ====== */}
