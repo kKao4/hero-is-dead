@@ -1,6 +1,6 @@
 # Giới thiệu về website
 
-Website được tạo nên bởi kKao4 và được dựa trên trang web gốc sau: [https://heroisdead.com/](https://heroisdead.com)
+Website được tạo nên bởi __kKao4__ và được dựa trên trang web gốc sau: [https://heroisdead.com/](https://heroisdead.com)
 
 Sau đây là những thư viện được sử dụng để tạo nên trang web:
 
