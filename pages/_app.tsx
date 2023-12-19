@@ -12,7 +12,6 @@ import "@/styles/nprogress.css"
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import nprogress from "nprogress"
-import { useWindowScroll, usePrevious } from "@uidotdev/usehooks";
 import { useDetectDirectionScroll } from '@/components/hooks/useDetectDirectionScroll';
 
 const modesto = localFont({ src: '../fonts/Modesto Poster W05 Regular.ttf', variable: "--font-modesto" })
