@@ -27,3 +27,25 @@ html.sr .load-hidden {
 .yarl__root {
   --yarl__color_backdrop: rgba(0, 0, 0, 0.82);
 }
+
+.menu-modal-enter {
+  opacity: 0;
+  transform: translateY(-24px);
+}
+
+.menu-modal-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.2s ease-out;
+}
+
+.menu-modal-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-modal-exit-active {
+  opacity: 0;
+  transform: translateY(-24px);
+  transition: all 0.2s ease-out;
+}

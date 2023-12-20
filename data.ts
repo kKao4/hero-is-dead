@@ -78,6 +78,50 @@ import castOno from "@/assets/cast_ono.jpg";
 import castAsanuma from "@/assets/cast_asanuma.jpg";
 import castHigashichi from "@/assets/cast_touchi.jpg";
 
+// MENU
+export const pages = [
+  {
+    href: "/news/page/1",
+    title_1: "News",
+    title_2: "Tin Tức",
+  },
+  {
+    href: "/on-air",
+    title_1: "On Air",
+    title_2: "Phát Sóng",
+  },
+  {
+    href: "/story",
+    title_1: "Story",
+    title_2: "Cốt Truyện",
+  },
+  {
+    href: "/staff-and-cast",
+    title_1: "STAFF&CAST",
+    title_2: "Nhân Viên & Diễn Viên",
+  },
+  {
+    href: "/character",
+    title_1: "CHARACTER",
+    title_2: "Nhân Vật",
+  },
+  {
+    href: "/product",
+    title_1: "PRODUCT",
+    title_2: "Sản Phẩm",
+  },
+  {
+    href: "/special",
+    title_1: "SPECIAL",
+    title_2: "Đặc Biệt",
+  },
+  {
+    url: "https://twitter.com/yuusyagasinda",
+    title_1: "TWITTER",
+    title_2: "Twitter",
+  },
+];
+
 // PRODUCT PAGE
 export const comics = [
   { src: comic1, href: "https://shogakukan-comic.jp/book?isbn=9784091261397" },

@@ -5,7 +5,6 @@ import CharacterThumb from "@/components/character/CharacterThumb";
 import CharacterDetail from "@/components/character/CharacterDetail";
 import { characters } from "@/data";
 import NormalRevealWrapper from "@/components/global/revealWrapper/NormalRevealWrapper";
-import { RevealList } from "next-reveal";
 
 export default function Page() {
   const [openingCharacter, setOpeningCharacter] = useState<string>("touka")
@@ -20,6 +19,7 @@ export default function Page() {
         </NormalRevealWrapper>
       </Container>
       <Container style={{ maxWidth: "1280px" }} className="pt-6 pb-32 sm:pt-9">
+        {/* Ảnh thu nhỏ nhân vật */}
         <div className="flex flex-row flex-wrap justify-center gap-6 mx-auto sm:gap-7 md:gap-10 max-w-fit">
           {characters.map((character, i) => {
             return (
@@ -35,13 +35,15 @@ export default function Page() {
         </div>
       </Container>
       <NormalRevealWrapper bottom={0}>
+        {/* Chi tiết giới thiệu nhân vật */}
         <div className="bg-second-brown pt-[390px] sm:pt-[540px] lg:pt-24 xl:pt-40 pb-12 lg:pb-28 xl:pb-44 px-4">
           <div className="relative w-fit mx-auto -translate-x-0 lg:-translate-x-[8%]">
-            {characters.map(character => {
+            {characters.map((character, i) => {
               return (
                 <CharacterDetail
                   key={character.id}
                   isOpen={openingCharacter === character.id}
+                  isFirst={i === 0}
                   img={character.visualImg}
                   character={character.name}
                   cv={character.cv}

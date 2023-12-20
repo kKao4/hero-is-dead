@@ -40,13 +40,6 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
   const handleCloseLightBox = () => {
     setIndex(-1)
   }
-  // useEffect(() => {
-  //   if (index >= 0) {
-  //     document.documentElement.style.overflow = "hidden"
-  //   } else {
-  //     document.documentElement.style.overflow = "auto"
-  //   }
-  // }, [index])
   return (
     <>
       <Script src="https://platform.twitter.com/widgets.js" />

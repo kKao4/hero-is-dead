@@ -1,9 +1,16 @@
 import OctagonalBox from "../global/octagonalBox/OctagonalBox";
 import Image from "next/image";
+import { twMerge } from 'tailwind-merge'
 
-export default function CharacterDetail({ img, character, cv, content, isOpen }: { img: any, character: string, cv: string, content: string, isOpen: boolean }) {
+export default function CharacterDetail({ img, character, cv, content, isOpen, isFirst }: { img: any, character: string, cv: string, content: string, isOpen: boolean, isFirst: boolean }) {
   return (
-    <div className={`${isOpen ? "opacity-100 delay-300" : "opacity-0"} transition-opacity ease-out ${character === "Touka Scott" ? "" : "absolute"} duration-300 top-0 left-0 w-full`}>
+    <div
+      className={twMerge(
+        "transition-opacity ease-out duration-300 w-full",
+        isFirst ? "" : "absolute top-0 left-0",
+        isOpen ? "opacity-100 delay-300" : "opacity-0"
+      )}
+    >
       <OctagonalBox
         boxClassName="max-w-[720px] xl:max-w-[820px] relative mx-auto"
         contentClassName="relative pb-6 sm:pb-8 pt-10 xl:pt-12 lg:pr-52 xl:pr-56 px-4 sm:px-8 font-vn font-bold"
@@ -25,7 +32,7 @@ export default function CharacterDetail({ img, character, cv, content, isOpen }:
         <span className="mr-2 font-medium">cv</span>
         <span className="text-lg xl:text-xl">{cv}</span>
         <p className="mt-3 font-medium sm:mt-4 xl:text-lg">{content}</p>
-        <Image className="absolute left-1/2 -translate-x-1/2 lg:-right-1/2 z-20 top-0 -translate-y-[108%] lg:-translate-y-[38%] lg:translate-x-[14%] aspect-auto max-w-[370px] sm:max-w-[480px] xl:max-w-[600px]" src={img} alt="" quality={100} placeholder="blur" priority={character.includes("touka")} />
+        <Image className="absolute left-1/2 -translate-x-1/2 lg:-right-1/2 z-20 top-0 -translate-y-[108%] lg:-translate-y-[38%] lg:translate-x-[14%] aspect-auto max-w-[370px] sm:max-w-[480px] xl:max-w-[600px]" src={img} alt="" quality={100} placeholder="blur" priority={isFirst} />
       </OctagonalBox>
     </div>
   )
