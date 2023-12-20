@@ -5,7 +5,7 @@ export default function NormalRevealWrapper({ children, className, bottom, delay
     <RevealWrapper className={"load-hidden " + className} distance="32px" duration={800} origin="bottom" easing="ease-out" delay={delay ?? 100} viewOffset={{
       top: 0,
       right: 0,
-      bottom: bottom ?? 180,
+      bottom: bottom ?? 120,
       left: 0,
     }}>
       {children}

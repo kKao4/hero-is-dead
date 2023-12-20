@@ -17,10 +17,6 @@ export default function DesktopMenu() {
         </Link>
         <div className="flex-col hidden py-5 ml-auto lg:flex gap-y-4">
           <div className="flex flex-row justify-end gap-x-8">
-            {/* <MenuLink href='/news/page/1' title_1="News" title_2="Tin Tức" mobile={false} />
-            <MenuLink href='/on-air' title_1="On Air" title_2="Phát Sóng" mobile={false} />
-            <MenuLink href='/story' title_1="Story" title_2="Cốt Truyện" mobile={false} />
-            <MenuLink href='/staff-and-cast' title_1="STAFF&CAST" title_2="Nhân viên và diễn viên" mobile={false} /> */}
             {pages.slice(0, pages.length / 2).map((page) => {
               return (
                 <MenuLink
@@ -36,10 +32,6 @@ export default function DesktopMenu() {
             })}
           </div>
           <div className="flex flex-row justify-end gap-x-8">
-            {/* <MenuLink href='/character' title_1="CHARACTER" title_2="Nhân Vật" mobile={false} />
-            <MenuLink href='/product' title_1="PRODUCT" title_2="Sản Phẩm" mobile={false} />
-            <MenuLink href='/special' title_1="SPECIAL" title_2="Đặc Biệt" mobile={false} />
-            <MenuLink url='https://twitter.com/yuusyagasinda' title_1="TWITTER" title_2="TWITTER" mobile={false} /> */}
             {pages.slice(pages.length / 2).map(page => {
               return (
                 <MenuLink

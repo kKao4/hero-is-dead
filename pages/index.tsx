@@ -62,7 +62,7 @@ export default function Page({ newData }: InferGetStaticPropsType<typeof getStat
           <RevealWrapper className="load-hidden" scale={1.2} duration={1000} distance="0" easing="ease-out" delay={200}>
             <Image src={rootImage} alt="" priority={true} quality={100} />
           </RevealWrapper>
-          <RevealWrapper className="load-hidden" scale={1.2} duration={1000} distance="0" easing="ease-out" delay={200}>
+          <RevealWrapper className="load-hidden" scale={1.2} duration={1000} distance="0" easing="ease-out" delay={0}>
             <Image src={logo} quality={100} priority={true} alt="" className="absolute scale-90 -translate-x-1/2 bottom-6 sm:bottom-14 xl:bottom-24 title sm:scale-110 lg:scale-125 xl:scale-165 left-1/2" />
           </RevealWrapper>
         </div>
